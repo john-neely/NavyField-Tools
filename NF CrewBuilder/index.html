@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>NavyFIELD Crew Planner</title>
+
+<script src="crewbuilderdata.js"></script>
+<script src="sailorData.js"></script>
+<script src="planner.js"></script>
+<style>
+
+body{
+font-family:Arial;
+margin:20px;
+}
+
+table{
+border-collapse:collapse;
+width:100%;
+margin-top:15px;
+}
+
+th,td{
+border:1px solid #aaa;
+padding:6px;
+text-align:center;
+}
+
+button{
+padding:6px 12px;
+margin:5px;
+}
+
+.controls{
+margin-bottom:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>NAVYFIELD Crew Planner</h2>
+
+<div class="controls">
+
+Select Nation
+<select id="nationSelect"></select>
+<br><br>
+Ship Class
+<select id="shipCategory"></select>
+<br><br>
+Ship
+<select id="shipSelect"></select>
+<br><br>
+
+<button onclick="buildCrew()">Build Crew</button>
+
+<br>
+
+
+<br>
+
+Save Name
+<input id="buildName">
+
+<button onclick="saveBuild()">Save Build</button>
+
+<br>
+
+Saved Builds
+<select id="savedBuilds"></select>
+
+<button onclick="loadBuild()">Load</button>
+
+<br><br>
+
+Prebuilt Builds
+<select id="presetBuilds"></select>
+
+<button onclick="loadPreset()">Load Preset</button>
+<br>
+
+</div>
+
+<table id="crewTable">
+
+<thead>
+<tr>
+<th>#</th>
+<th>Role</th>
+<th>Sailor Type</th>
+<th>Class</th>
+<th>Remove</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+<br>
+
+<button onclick="addRow()">Add Sailor</button>
+<button onclick="refreshRows()">Refresh</button>
+<button onclick="newCrew()">Start Over</button>
+<br><br>
+
+Export / Import
+
+<br>
+<textarea id="exportBox" style="width:100%;height:70px"></textarea>
+
+<br>
+<button onclick="exportBuild()">Export Build</button>
+<button onclick="importBuild()">Import Build</button>
+<script>
+
+
+/* -------------------------
+PRESET BUILDS
+------------------------- */
+
+const presets = {
+
+"BB Standard 4 Gunner":[
+"BO",
+"Scout",
+"Gunner",
+"Gunner",
+"Gunner",
+"Gunner",
+"Engineer",
+"Engineer",
+"Engineer",
+"Engineer"
+],
+
+"BB Repair Heavy":[
+"BO",
+"Scout",
+"Gunner",
+"Gunner",
+"Gunner",
+"Gunner",
+"Repair",
+"Repair",
+"Repair",
+"Engineer"
+],
+
+"CV Standard":[
+"BO",
+"Gunner",
+"Gunner",
+"Fighter",
+"Fighter",
+"Fighter",
+"Fighter",
+"Seaman"
+]
+
+}
+
+
+/* -------------------------
+Populate preset dropdown
+------------------------- */
+
+const presetSelect=document.getElementById("presetBuilds")
+
+Object.keys(presets).forEach(p=>{
+
+let o=document.createElement("option")
+
+o.value=p
+o.text=p
+
+presetSelect.appendChild(o)
+
+})
+
+
+/* -------------------------
+Populate Nations
+------------------------- */
+
+const nationSelect=document.getElementById("nationSelect")
+
+nations.forEach(n=>{
+let o=document.createElement("option")
+o.value=n
+o.text=n
+nationSelect.appendChild(o)
+})
+
+
+/* -------------------------
+Populate Ship Categories
+------------------------- */
+
+const shipCategory=document.getElementById("shipCategory")
+
+function populateCategories(){
+
+shipCategory.innerHTML=""
+
+const nation=nationSelect.value
+
+const categories=[...new Set(
+
+ships
+.filter(s=>s.nation===nation)
+.map(s=>s.shipCategory)
+
+)]
+
+categories.forEach(c=>{
+let o=document.createElement("option")
+o.value=c
+o.text=c
+shipCategory.appendChild(o)
+})
+
+populateShips()
+
+}
+
+nationSelect.onchange=function(){
+
+populateCategories()
+
+document.querySelectorAll("#crewTable tbody tr")
+.forEach(row=>{
+
+const cell=row.querySelector(".classCell")
+
+if(!cell) return
+
+cell.innerHTML=""
+
+buildClassStep(row)
+
+})
+
+}
+
+/* -------------------------
+Populate Ships
+------------------------- */
+
+const shipSelect=document.getElementById("shipSelect")
+
+function populateShips(){
+
+shipSelect.innerHTML=""
+
+const nation=nationSelect.value
+const cat=shipCategory.value
+
+ships
+.filter(s=>s.nation===nation && s.shipCategory===cat)
+.forEach(s=>{
+
+let o=document.createElement("option")
+
+o.value=s.shipName
+o.text=s.shipName
+
+shipSelect.appendChild(o)
+
+})
+
+}
+
+shipCategory.onchange=populateShips
+
+
+/* -------------------------
+Build Crew
+------------------------- */
+
+function buildCrew(){
+
+const shipName=shipSelect.value
+const ship=ships.find(s=>s.shipName===shipName)
+
+const tbody=document.querySelector("#crewTable tbody")
+
+tbody.innerHTML=""
+
+for(let i=0;i<ship.allSlots;i++){
+
+addRow()
+
+}
+
+}
+
+
+/* -------------------------
+Add Row
+------------------------- */
+
+function addRow(){
+
+const tbody=document.querySelector("#crewTable tbody")
+
+const row=document.createElement("tr")
+
+const index=tbody.children.length+1
+
+row.innerHTML=`
+
+<td>${index}</td>
+
+<td>
+<select class="roleSelect">
+<option>BO</option>
+<option>Scout</option>
+<option>Main Gunner</option>
+<option>AA/DP</option>
+<option>HH</option>
+<option>Repair</option>
+<option>Engineer</option>
+<option>Fighter</option>
+<option>TB</option>
+<option>DB</option>
+<option>Sonar</option>
+<option>Planesman</option>
+<option>Torper</option>
+<option>Seaman</option>
+</select>
+</td>
+
+<td>
+<select class="sailorSelect">
+${premSailors.map(s=>`<option>${s.type}</option>`).join("")}
+</select>
+</td>
+
+<td class="classCell"></td>
+
+<td>
+<button onclick="removeRow(this)">X</button>
+</td>
+
+`
+
+tbody.appendChild(row)
+buildClassStep(row)
+populateClassOptions(row)
+}
+
+
+/* -------------------------
+Remove Row
+------------------------- */
+
+function removeRow(btn){
+
+btn.closest("tr").remove()
+
+refreshRows()
+
+}
+
+
+/* -------------------------
+Refresh
+------------------------- */
+
+function refreshRows(){
+
+document.querySelectorAll("#crewTable tbody tr")
+.forEach((r,i)=>{
+
+r.children[0].innerText=i+1
+
+})
+
+}
+
+
+/* -------------------------
+Start New Crew
+------------------------- */
+
+function newCrew(){
+
+document.querySelector("#crewTable tbody").innerHTML=""
+
+}
+
+
+/* -------------------------
+SAVE BUILD
+------------------------- */
+
+function saveBuild(){
+
+const name=document.getElementById("buildName").value
+
+if(!name) return alert("Enter a build name")
+
+const roles=[...document.querySelectorAll(".roleSelect")]
+.map(r=>r.value)
+
+localStorage.setItem("crew_"+name,JSON.stringify(roles))
+
+updateSaved()
+
+}
+
+
+/* -------------------------
+LOAD BUILD
+------------------------- */
+
+function loadBuild(){
+
+const name=document.getElementById("savedBuilds").value
+
+const data=JSON.parse(localStorage.getItem("crew_"+name))
+
+if(!data) return
+
+newCrew()
+
+data.forEach(r=>{
+addRow()
+})
+
+document.querySelectorAll(".roleSelect").forEach((r,i)=>{
+
+r.value=data[i]
+
+})
+
+}
+
+
+/* -------------------------
+UPDATE SAVED LIST
+------------------------- */
+
+function updateSaved(){
+
+const saved=document.getElementById("savedBuilds")
+
+saved.innerHTML=""
+
+Object.keys(localStorage).forEach(k=>{
+
+if(k.startsWith("crew_")){
+
+let o=document.createElement("option")
+
+o.value=k.replace("crew_","")
+o.text=k.replace("crew_","")
+
+saved.appendChild(o)
+
+}
+
+})
+
+}
+
+
+/* -------------------------
+LOAD PRESET
+------------------------- */
+
+function loadPreset(){
+
+const name=presetSelect.value
+
+const roles=presets[name]
+
+newCrew()
+
+roles.forEach(r=>{
+addRow()
+})
+
+document.querySelectorAll(".roleSelect").forEach((r,i)=>{
+
+r.value=roles[i]
+
+})
+
+}
+
+function populateClassOptions(row){
+
+const nation=document.getElementById("nationSelect").value
+
+const classBoxes=row.querySelectorAll(".classSelect")
+
+if(!classBoxes.length) return
+
+const nationClasses=sailorClasses.filter(c=>c.nation===nation)
+
+classBoxes.forEach(box=>{
+
+box.innerHTML=""
+
+let blank=document.createElement("option")
+blank.text="--"
+blank.value=""
+box.appendChild(blank)
+
+nationClasses.forEach(c=>{
+
+let o=document.createElement("option")
+o.value=c.id
+o.text=c.name
+
+box.appendChild(o)
+
+})
+
+})
+
+}
+function buildClassStep(row,parentClass=null){
+
+const nation=document.getElementById("nationSelect").value
+const cell=row.querySelector(".classCell")
+
+const step=document.createElement("div")
+step.className="classStep"
+step.style.marginBottom="4px"
+
+const classSelect=document.createElement("select")
+let blank=document.createElement("option")
+blank.value=""
+blank.text="--"
+classSelect.appendChild(blank)
+classSelect.className="classSelect"
+
+const levelInput=document.createElement("input")
+levelInput.type="number"
+levelInput.className="classLevel"
+levelInput.style.width="60px"
+levelInput.min = 12
+levelInput.max = 125
+
+step.appendChild(classSelect)
+step.appendChild(document.createTextNode(" Lv "))
+step.appendChild(levelInput)
+
+cell.appendChild(step)
+
+
+/* determine options */
+
+let options=[]
+
+if(parentClass){
+
+const childIDs=classTransitions
+.filter(t=>t.parentId===Number(parentClass))
+.map(t=>t.childId)
+
+options=sailorClasses.filter(c=>childIDs.includes(Number(c.id)))
+
+}else{
+
+const childIDs=classTransitions.map(t=>t.childId)
+
+options=sailorClasses.filter(c=>
+c.nation===nation && !childIDs.includes(Number(c.id))
+)
+
+}
+
+
+/* populate dropdown */
+
+options.forEach(c=>{
+
+let o=document.createElement("option")
+o.value=c.id
+o.text=c.name
+
+classSelect.appendChild(o)
+
+})
+
+
+/* set default level */
+
+if(options.length){
+
+levelInput.value=options[0].requiredLevel || ""
+
+}
+
+
+/* when class changes */
+
+classSelect.addEventListener("change",function(){
+
+let next=step.nextSibling
+while(next){
+
+let tmp=next.nextSibling
+next.remove()
+next=tmp
+
+}
+
+const selectedClass=sailorClasses.find(c=>c.id==classSelect.value)
+
+if(selectedClass){
+
+levelInput.value=selectedClass.requiredLevel
+
+}
+
+const children=classTransitions.filter(
+t=>t.parentId===Number(classSelect.value)
+)
+
+if(children.length){
+
+buildClassStep(row,classSelect.value)
+
+}
+
+})
+
+
+/* auto-build next step */
+
+if(classSelect.value){
+
+const children=classTransitions.filter(
+t=>t.parentId===Number(classSelect.value)
+)
+
+if(children.length){
+
+buildClassStep(row,classSelect.value)
+
+}
+
+}
+
+}
+/* -------------------------
+INIT
+------------------------- */
+
+populateCategories()
+updateSaved()
+function exportBuild(){
+
+const nation=document.getElementById("nationSelect").value
+const ship=document.getElementById("shipSelect").value
+
+const roles=[...document.querySelectorAll(".roleSelect")]
+.map(r=>r.value)
+
+const sailors=[...document.querySelectorAll(".sailorSelect")]
+.map(s=>s.value)
+
+const classPaths=[...document.querySelectorAll("#crewTable tbody tr")]
+.map(row=>{
+
+const classes=[...row.querySelectorAll(".classSelect")]
+.map(c=>c.value)
+
+const levels=[...row.querySelectorAll(".classLevel")]
+.map(l=>l.value)
+
+return {classes,levels}
+
+})
+
+const data={
+nation:nation,
+ship:ship,
+roles:roles,
+sailors:sailors,
+classPaths:classPaths
+}
+
+const encoded=btoa(JSON.stringify(data))
+
+document.getElementById("exportBox").value=encoded
+
+}
+
+
+
+function importBuild(){
+
+const encoded=document.getElementById("exportBox").value.trim()
+
+if(!encoded) return alert("Paste build code")
+
+let data
+
+try{
+data=JSON.parse(atob(encoded))
+}catch{
+alert("Invalid build code")
+return
+}
+
+document.getElementById("nationSelect").value=data.nation
+
+populateCategories()
+
+document.getElementById("shipSelect").value=data.ship
+
+newCrew()
+
+data.roles.forEach(()=>addRow())
+
+document.querySelectorAll(".roleSelect")
+.forEach((r,i)=>{
+if(data.roles[i]) r.value=data.roles[i]
+})
+
+document.querySelectorAll(".sailorSelect")
+.forEach((s,i)=>{
+if(data.sailors[i]) s.value=data.sailors[i]
+})
+
+
+/* restore class paths */
+
+document.querySelectorAll("#crewTable tbody tr")
+.forEach((row,i)=>{
+
+const path=data.classPaths?.[i]
+
+if(!path) return
+
+const cell=row.querySelector(".classCell")
+cell.innerHTML=""
+
+let parent=null
+
+path.classes.forEach((classId,stepIndex)=>{
+
+buildClassStep(row,parent)
+
+const steps=row.querySelectorAll(".classStep")
+const step=steps[steps.length-1]
+
+const classSelect=step.querySelector(".classSelect")
+const levelInput=step.querySelector(".classLevel")
+
+classSelect.value=classId
+
+if(path.levels[stepIndex]){
+levelInput.value=path.levels[stepIndex]
+}
+
+parent=classId
+
+})
+
+})
+
+}
+</script>
+
+</body>
+</html>
