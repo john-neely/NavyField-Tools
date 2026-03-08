@@ -3959,10 +3959,6 @@ window.sailorClasses = [
 window.classTransitions = [
   {
     "parentId": 4,
-    "childId": 1
-  },
-  {
-    "parentId": 4,
     "childId": 2
   },
   {
@@ -4128,10 +4124,6 @@ window.classTransitions = [
   {
     "parentId": 25,
     "childId": 40
-  },
-  {
-    "parentId": 44,
-    "childId": 41
   },
   {
     "parentId": 44,
