@@ -407,7 +407,29 @@ if(!name) return alert("Enter a build name")
 const roles=[...document.querySelectorAll(".roleSelect")]
 .map(r=>r.value)
 
-localStorage.setItem("crew_"+name,JSON.stringify(roles))
+const sailors=[...document.querySelectorAll(".sailorSelect")]
+.map(s=>s.value)
+
+const classPaths=[...document.querySelectorAll("#crewTable tbody tr")]
+.map(row=>{
+
+const classes=[...row.querySelectorAll(".classSelect")]
+.map(c=>c.value)
+
+const levels=[...row.querySelectorAll(".classLevel")]
+.map(l=>l.value)
+
+return {classes,levels}
+
+})
+
+const data={
+roles:roles,
+sailors:sailors,
+classPaths:classPaths
+}
+
+localStorage.setItem("crew_"+name,JSON.stringify(data))
 
 updateSaved()
 
@@ -428,18 +450,56 @@ if(!data) return
 
 newCrew()
 
-data.forEach(r=>{
-addRow()
+data.roles.forEach(()=>addRow())
+
+document.querySelectorAll(".roleSelect")
+.forEach((r,i)=>{
+if(data.roles[i]) r.value=data.roles[i]
 })
 
-document.querySelectorAll(".roleSelect").forEach((r,i)=>{
+document.querySelectorAll(".sailorSelect")
+.forEach((s,i)=>{
+if(data.sailors[i]) s.value=data.sailors[i]
+})
 
-r.value=data[i]
+
+/* restore class paths */
+
+document.querySelectorAll("#crewTable tbody tr")
+.forEach((row,i)=>{
+
+const path=data.classPaths?.[i]
+
+if(!path) return
+
+const cell=row.querySelector(".classCell")
+cell.innerHTML=""
+
+let parent=null
+
+path.classes.forEach((classId,stepIndex)=>{
+
+buildClassStep(row,parent)
+
+const steps=row.querySelectorAll(".classStep")
+const step=steps[steps.length-1]
+
+const classSelect=step.querySelector(".classSelect")
+const levelInput=step.querySelector(".classLevel")
+
+classSelect.value=classId
+
+if(path.levels[stepIndex]){
+levelInput.value=path.levels[stepIndex]
+}
+
+parent=classId
+
+})
 
 })
 
 }
-
 
 /* -------------------------
 UPDATE SAVED LIST
@@ -775,5 +835,6 @@ parent=classId
 </body>
 
 </html>
+
 
 
