@@ -74,8 +74,8 @@ value+=(base+modifier)*levels
 
 }
 
-if(config.boost){
-value=value*1.2
+if(sailor.boost){
+stat = Math.floor(stat * 1.2)
 }
 
 stats[stat]=Math.floor(value)
@@ -92,5 +92,6 @@ buildCrew(crewData){
 return crewData.map(sailor=>this.buildSailor(sailor))
 
 }
+
 
 }
