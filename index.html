@@ -900,25 +900,18 @@ const cell=row.querySelector(".statsCell")
 
 if(!cell) return
 
-function showStat(final,base){
-const diff=final-base
-if(diff>0) return `${final} (+${diff})`
-if(diff<0) return `${final} (${diff})`
-return final
-}
-
 cell.innerHTML=`
-Pot:${showStat(stats.potential,stats.base.potential)}<br>
-Acc:${showStat(stats.accuracy,stats.base.accuracy)}<br>
-Rld:${showStat(stats.reload,stats.base.reload)}<br>
-Tor:${showStat(stats.torpedo,stats.base.torpedo)}<br>
-AAW:${showStat(stats.aaw,stats.base.aaw)}<br>
-Rep:${showStat(stats.repair,stats.base.repair)}<br>
-Res:${showStat(stats.restore,stats.base.restore)}<br>
-Eng:${showStat(stats.engine,stats.base.engine)}<br>
-Air:${showStat(stats.aircraft,stats.base.aircraft)}<br>
-Ftr:${showStat(stats.fighter,stats.base.fighter)}<br>
-Bom:${showStat(stats.bomber,stats.base.bomber)}
+Pot:${stats.potential}<br>
+Acc:${stats.accuracy}<br>
+Rld:${stats.reload}<br>
+Tor:${stats.torpedo}<br>
+AAW:${stats.aaw}<br>
+Rep:${stats.repair}<br>
+Res:${stats.restore}<br>
+Eng:${stats.engine}<br>
+Air:${stats.aircraft}<br>
+Ftr:${stats.fighter}<br>
+Bom:${stats.bomber}
 `
 
 })
@@ -929,6 +922,7 @@ Bom:${showStat(stats.bomber,stats.base.bomber)}
 </body>
 
 </html>
+
 
 
 
