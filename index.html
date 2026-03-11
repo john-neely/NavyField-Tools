@@ -471,7 +471,9 @@ if(data.roles[i]) r.value=data.roles[i]
 
 document.querySelectorAll(".sailorSelect")
 .forEach((s,i)=>{
-if(data.sailors[i]) s.value=data.sailors[i]
+if(data.boosts && data.boosts[i]){
+b.checked=true
+}
 })
 
 
@@ -920,6 +922,7 @@ Bom:${stats.bomber}
 </body>
 
 </html>
+
 
 
 
