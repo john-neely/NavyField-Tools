@@ -912,20 +912,36 @@ const metrics = CrewEngine.calculateTrueAbilities(stats, c.role, c.recruits, c.e
 totalRepair += metrics.repPerSec;
 if(c.role === "Engineer") totalEngine += metrics.engineOH;
 
+let baseHTML = `<b>Base:</b><br>`;
+const r = c.role;
+
+if (r === "Seaman") {
+    baseHTML += `Pot:${stats.potential}<br>Acc:${stats.accuracy}<br>Rld:${stats.reload}<br>Tor:${stats.torpedo}<br>AAW:${stats.aaw}<br>Rep:${stats.repair}<br>Res:${stats.restore}<br>Eng:${stats.engine}<br>Air:${stats.aircraft}<br>Ftr:${stats.fighter}<br>Bom:${stats.bomber}<br>`;
+} else {
+    // Role-specific stats
+    if (r === "BO" || r === "Sonar" || r === "Planesman") {
+        baseHTML += `Pot:${stats.potential}<br>`;
+    }
+    if (r === "Main Gunner" || r === "HH" || r === "AA/DP") {
+        baseHTML += `Acc:${stats.accuracy}<br>Rld:${stats.reload}<br>`;
+    }
+    if (r === "Torper") {
+        baseHTML += `Tor:${stats.torpedo}<br>`;
+    }
+    // ALWAYS show Repair
+    baseHTML += `Rep:${stats.repair}<br>`;
+
+    if (r === "Engineer") {
+        baseHTML += `Eng:${stats.engine}<br>`;
+    }
+    if (r === "Scout" || r === "Fighter" || r === "TB" || r === "DB") {
+        baseHTML += `Air:${stats.aircraft}<br>Ftr:${stats.fighter}<br>Bom:${stats.bomber}<br>`;
+    }
+}
+
 cell.innerHTML=`
 <div style="${statBlockStyle}">
-<b>Base:</b><br>
-Pot:${stats.potential}<br>
-Acc:${stats.accuracy}<br>
-Rld:${stats.reload}<br>
-Tor:${stats.torpedo}<br>
-AAW:${stats.aaw}<br>
-Rep:${stats.repair}<br>
-Res:${stats.restore}<br>
-Eng:${stats.engine}<br>
-Air:${stats.aircraft}<br>
-Ftr:${stats.fighter}<br>
-Bom:${stats.bomber}
+${baseHTML}
 </div>
 <div style="${statBlockStyle}">
 <b>True Ability:</b><br>
