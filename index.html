@@ -47,19 +47,21 @@ margin-bottom:15px;
 
 <div class="controls">
 
-Select Nation
-<select id="nationSelect"></select>
-<br><br>
-Ship Class
-<select id="shipCategory"></select>
-<br><br>
-Ship
-<select id="shipSelect"></select>
-<br><br>
-
-<button onclick="buildCrew()">Build Crew</button>
-
-<br>
+<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+    <div>
+        Select Nation
+        <select id="nationSelect"></select>
+    </div>
+    <div>
+        Ship Class
+        <select id="shipCategory"></select>
+    </div>
+    <div>
+        Ship
+        <select id="shipSelect"></select>
+    </div>
+    <button onclick="buildCrew()" style="margin: 0;">Build Crew</button>
+</div>
 
 
 <br>
@@ -698,8 +700,40 @@ const levelInput=document.createElement("input")
 levelInput.type="number"
 levelInput.className="classLevel"
 levelInput.style.width="60px"
-levelInput.min = 12
 levelInput.max = 125
+
+function enforceMinLevel() {
+    let minAllowed = 1;
+    if (typeof sailorClasses !== 'undefined') {
+        const selectedClass = sailorClasses.find(c => c.id == classSelect.value);
+        if (selectedClass) {
+            minAllowed = Number(selectedClass.requiredLevel) || 1;
+        }
+    }
+    
+    const prevStep = step.previousElementSibling;
+    if (prevStep && prevStep.classList.contains("classStep")) {
+        const prevLevelInput = prevStep.querySelector(".classLevel");
+        if (prevLevelInput) {
+            const prevLevel = Number(prevLevelInput.value);
+            if (prevLevel > minAllowed) minAllowed = prevLevel;
+        }
+    }
+    
+    levelInput.min = minAllowed;
+    if (Number(levelInput.value) < minAllowed && levelInput.value !== "") {
+        levelInput.value = minAllowed;
+    }
+    
+    const nextStep = step.nextElementSibling;
+    if (nextStep && nextStep.classList.contains("classStep")) {
+        const nextInput = nextStep.querySelector(".classLevel");
+        if (nextInput) {
+            nextInput.dispatchEvent(new Event("change"));
+        }
+    }
+}
+levelInput.addEventListener("change", enforceMinLevel);
 
 step.appendChild(classSelect)
 step.appendChild(document.createTextNode(" Lv "))
@@ -749,6 +783,7 @@ classSelect.appendChild(o)
 if(options.length){
 
 levelInput.value=options[0].requiredLevel || ""
+enforceMinLevel()
 
 }
 
@@ -773,6 +808,8 @@ if(selectedClass){
 levelInput.value=selectedClass.requiredLevel
 
 }
+
+enforceMinLevel()
 
 const children=classTransitions.filter(
 t=>t.parentId===Number(classSelect.value)
