@@ -140,15 +140,16 @@ if (typeof rolePrimaryStats !== "undefined" && rolePrimaryStats[role]) {
 let accPct = (ta.accuracy / ACC_CAP) * 100;
 let rldPct = (ta.reload / RLD_CAP) * 100;
 
-return {
-    ta: ta,
-    repPerSec: repPerSec,
-    engineOH: engineOH,
-    priCap: priCap,
-    priTA: priTA,
-    accPct: accPct,
-    rldPct: rldPct
-};
+    return {
+        ta: ta,
+        repPerSec: repPerSec,
+        engineOH: engineOH,
+        priCap: priCap,
+        priTA: priTA,
+        accPct: accPct,
+        rldPct: rldPct,
+        sailorWeight: weight / 2 // in tons
+    };
 
 }
 
