@@ -118,8 +118,8 @@ this.STAT_KEYS.forEach(k => {
 const repPerSec = ta.repair / 138500;
 const engineOH = ta.engine / 112500;
 
-const ACC_CAP = 1700000;
-const RLD_CAP = 2100000;
+const ACC_CAP = 1500000;
+const RLD_CAP = 20800000;
 
 let priCap = null;
 let priTA = 0;
