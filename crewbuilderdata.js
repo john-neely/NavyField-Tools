@@ -3,7 +3,7 @@ NATIONS
 ========================= */
 
 const nations = [
-    { Nation_ID: 0, Nation: "US", Reload: 2, Fighter: 2 },
+    { Nation_ID: 0, Nation: "US", AAW: 2, Fighter: 2 },
     { Nation_ID: 1, Nation: "UK", Repair: 2, Restore: 2 },
     { Nation_ID: 2, Nation: "KM", Accuracy: 2, Reload: 2, Engine: 2, Bomber: 2 },
     { Nation_ID: 3, Nation: "IJN", Torpedo: 2, Bomber: 2 },
