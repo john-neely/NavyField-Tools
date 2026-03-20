@@ -1285,21 +1285,25 @@ ${taHTML}
 </div>
 `
 
-            })
+            });
 
-            const totalsDiv = document.getElementById("crewTotals").style.display = "block"
-            const REPAIR_CAP = 280;
-            let effectiveRepair = Math.min(totalRepair, REPAIR_CAP);
-            const totalRepPct = (totalRepair / REPAIR_CAP) * 100;
+            var totalsDiv = document.getElementById("crewTotals");
+            if (totalsDiv) totalsDiv.style.display = "block";
             
-            let repHTML = `<b>Total Repair:</b> ${effectiveRepair.toFixed(3)} Rep/s`;
+            var REPAIR_CAP = 280;
+            var effectiveRepair = Math.min(totalRepair, REPAIR_CAP);
+            var totalRepPct = (totalRepair / REPAIR_CAP) * 100;
+            
+            var repHTML = `<b>Total Repair:</b> ${effectiveRepair.toFixed(3)} Rep/s`;
             if (totalRepair > REPAIR_CAP) {
                 repHTML += ` <span style="color:red; font-weight:bold;">(HARD CAPPED)</span> <i>(Raw: ${totalRepair.toFixed(3)} / ${totalRepPct.toFixed(1)}%)</i>`;
             } else {
                 repHTML += ` (${totalRepPct.toFixed(1)}% of cap)`;
             }
-            document.getElementById("repairTotal").innerHTML = repHTML;
-            document.getElementById("engineTotal").innerHTML = `<b>Total Engine:</b> ${totalEngine.toFixed(3)} OH/s<br><b>Total Crew Weight:</b> ${totalWeight.toFixed(0)}t`
+            var rt = document.getElementById("repairTotal");
+            if (rt) rt.innerHTML = repHTML;
+            var et = document.getElementById("engineTotal");
+            if (et) et.innerHTML = `<b>Total Engine:</b> ${totalEngine.toFixed(3)} OH/s<br><b>Total Crew Weight:</b> ${totalWeight.toFixed(0)}t`;
 
         }
     </script>
