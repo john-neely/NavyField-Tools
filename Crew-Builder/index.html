@@ -44,7 +44,8 @@
 
 <body>
 
-    <div style="position: sticky; top: 0; background: white; z-index: 100; margin: -20px -20px 20px -20px; padding: 20px; border-bottom: 2px solid #aaa;">
+    <div
+        style="position: sticky; top: 0; background: white; z-index: 100; margin: -20px -20px 20px -20px; padding: 20px; border-bottom: 2px solid #aaa;">
         <h2 style="margin-top: 0;">NAVYFIELD Crew Planner</h2>
 
         <div class="controls" style="margin-bottom: 0;">
@@ -86,13 +87,14 @@
 
             <button onclick="loadPreset()">Load Preset</button>
             <button onclick="calculateCrew()">Calculate Stats</button>
-            
+
             <span style="border-left: 2px solid #ccc; margin: 0 10px; padding-left: 5px;"></span>
             <button onclick="addRow()">Add Sailor</button>
             <button onclick="refreshRows()">Refresh</button>
             <button onclick="newCrew()">Start Over</button>
 
-            <div id="crewTotals" style="margin-top:10px; font-size:14px; padding:10px; background:#f0f0f0; border:1px solid #ccc; display:none;">
+            <div id="crewTotals"
+                style="margin-top:10px; font-size:14px; padding:10px; background:#f0f0f0; border:1px solid #ccc; display:none;">
                 <div id="repairTotal"></div>
                 <div id="engineTotal"></div>
             </div>
@@ -352,14 +354,14 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 let r = Number(row.querySelector(".recInput").value) || 0;
                 let e = Number(row.querySelector(".expInput").value) || 0;
                 let v = Number(row.querySelector(".vetInput").value) || 0;
-                
+
                 if (eObj && eObj.target === row.querySelector(".vetInput")) {
-                   row.querySelector(".vetPreset").value = "custom";
-                   let maxVets = Math.floor(maxSize * 0.5);
-                   if (v > maxVets) {
-                       v = maxVets;
-                       row.querySelector(".vetInput").value = v;
-                   }
+                    row.querySelector(".vetPreset").value = "custom";
+                    let maxVets = Math.floor(maxSize * 0.5);
+                    if (v > maxVets) {
+                        v = maxVets;
+                        row.querySelector(".vetInput").value = v;
+                    }
                 }
 
                 let total = r + e + v;
@@ -377,7 +379,7 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             row.querySelector(".recInput").addEventListener("input", updateCrewTotal);
             row.querySelector(".expInput").addEventListener("input", updateCrewTotal);
             row.querySelector(".vetInput").addEventListener("input", updateCrewTotal);
-            
+
             updateMaxCrewSize(row);
 
         }
@@ -633,18 +635,24 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
 
             const name = presetSelect.value
 
-            const roles = presets[name]
+            const presetItems = presets[name]
 
             newCrew()
 
-            roles.forEach(r => {
+            presetItems.forEach(item => {
                 addRow()
             })
 
             document.querySelectorAll(".roleSelect").forEach((r, i) => {
+                const item = presetItems[i];
+                r.value = typeof item === "string" ? item : item.role;
+            })
 
-                r.value = roles[i]
-
+            document.querySelectorAll(".sailorSelect").forEach((s, i) => {
+                const item = presetItems[i];
+                if (typeof item === "object" && item.sailor) {
+                    s.value = item.sailor;
+                }
             })
 
         }
@@ -822,7 +830,7 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                     buildClassStep(row, classSelect.value)
 
                 }
-                
+
                 updateMaxCrewSize(row);
 
             })
@@ -856,12 +864,12 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             const jsonStr = JSON.stringify(data, null, 2)
             const blob = new Blob([jsonStr], { type: "application/json" })
             const url = URL.createObjectURL(blob)
-            
+
             let a = document.createElement("a")
             a.href = url
             let name = document.getElementById("buildName").value || "NavyFieldBuild"
             a.download = name + ".json"
-            
+
             document.body.appendChild(a)
             a.click()
             document.body.removeChild(a)
@@ -871,9 +879,9 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
         function importBuildFile(event) {
             const file = event.target.files[0]
             if (!file) return
-            
+
             const reader = new FileReader()
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 try {
                     const data = JSON.parse(e.target.result)
                     setUIState(data)
@@ -882,7 +890,7 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 }
             }
             reader.readAsText(file)
-            
+
             event.target.value = ""
         }
 
@@ -891,23 +899,23 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             const maxSize = Number(row.querySelector(".maxCrewDisplay").innerText) || 0;
             const vInput = row.querySelector(".vetInput");
             const eInput = row.querySelector(".expInput");
-            
+
             if (sel.value === "custom") return;
-            
+
             let target = 0;
             if (sel.value === "max") {
                 target = Math.floor(maxSize * 0.5);
             } else {
                 target = Number(sel.value) || 0;
             }
-            
+
             let oldV = Number(vInput.value) || 0;
             let newV = Math.min(target, Math.floor(maxSize * 0.5));
             vInput.value = newV;
-            
+
             let e = Number(eInput.value) || 0;
             eInput.value = Math.max(0, e - (newV - oldV));
-            
+
             vInput.dispatchEvent(new Event("input"));
         }
 
@@ -918,13 +926,13 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
 
             config.classPath.forEach(step => {
                 if (!step.classId) return;
-                
+
                 const levels = Math.max(0, step.level - currentLevel);
                 size += levels * currentRecruitsPerLevel;
-                
+
                 const cls = sailorClasses.find(c => c.id == step.classId);
                 if (cls && cls.recruitsPerLevel) {
-                   currentRecruitsPerLevel = cls.recruitsPerLevel;
+                    currentRecruitsPerLevel = cls.recruitsPerLevel;
                 }
                 currentLevel = Math.max(currentLevel, step.level);
             });
@@ -942,16 +950,16 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             const levels = [...row.querySelectorAll(".classLevel")].map(l => Number(l.value));
             const classPath = classes.map((c, i) => ({ classId: Number(c), level: levels[i] }));
             const maxSize = getMaxCrewSize({ classPath: classPath, finalLevel: 125 });
-            
+
             const maxSpan = row.querySelector(".maxCrewDisplay");
             if (!maxSpan) return;
             const oldMax = Number(maxSpan.innerText) || 0;
             maxSpan.innerText = maxSize;
-            
+
             const rInput = row.querySelector(".recInput");
             const eInput = row.querySelector(".expInput");
             const vInput = row.querySelector(".vetInput");
-            
+
             let r = Number(rInput.value) || 0;
             let e = Number(eInput.value) || 0;
             let v = Number(vInput.value) || 0;
@@ -968,7 +976,7 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                     eInput.value = Math.max(0, e + diff);
                 }
             }
-            
+
             const rReal = Number(rInput.value) || 0;
             const totalSpan = row.querySelector(".totalCrewDisplay");
             let total = rReal + e + v;
@@ -1031,12 +1039,12 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             const row = btn.closest("tr");
             const tbody = row.parentNode;
             const rowIndex = Array.from(tbody.children).indexOf(row);
-            
+
             const allCrew = gatherCrewData();
             const config = allCrew[rowIndex];
-            
+
             if (!config || !config.sailorType) return;
-            
+
             function getDefaultOpt(r, n) {
                 if (r === "Main Gunner" || r === "AA/DP" || r === "HH") return { s: "reload", c: 2080000 };
                 if (r === "Torper") return { s: "torpedo", c: 1000000 };
@@ -1051,31 +1059,31 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 if (r === "Repair") return { s: "repair", c: 2000000 };
                 return { s: "reload", c: 2080000 };
             }
-            
+
             const def = getDefaultOpt(config.role, config.nation);
             const isPilotModes = ["Fighter", "TB", "DB", "Scout"].includes(config.role);
 
             let statToOptimize, targetCap, isMaxMode = false;
-            
+
             if (isPilotModes) {
-                 statToOptimize = prompt(`Since Pilots have no stat cap, which stat do you want to get the absolute HIGHEST True Ability for?\n\nStat (e.g. fighter, bomber, aircraft):`, def.s);
-                 if (!statToOptimize) return;
-                 isMaxMode = true;
+                statToOptimize = prompt(`Since Pilots have no stat cap, which stat do you want to get the absolute HIGHEST True Ability for?\n\nStat (e.g. fighter, bomber, aircraft):`, def.s);
+                if (!statToOptimize) return;
+                isMaxMode = true;
             } else {
-                 statToOptimize = prompt(`To maximize Repair (or other off-stats), simply tell me your MAIN ROLE stat to cap. The optimizer will automatically delay your classes as long as medically possible to preserve your Repair stats!\n\nStat to hit cap for (e.g. reload, accuracy, torpedo, engine, potential):`, def.s);
-                 if (!statToOptimize) return;
-                 
-                 const targetString = prompt(`Enter the target True Ability cap you want to precisely hit for '${statToOptimize}':`, def.c);
-                 if (!targetString) return;
-                 targetCap = parseInt(targetString, 10);
+                statToOptimize = prompt(`To maximize Repair (or other off-stats), simply tell me your MAIN ROLE stat to cap. The optimizer will automatically delay your classes as long as medically possible to preserve your Repair stats!\n\nStat to hit cap for (e.g. reload, accuracy, torpedo, engine, potential):`, def.s);
+                if (!statToOptimize) return;
+
+                const targetString = prompt(`Enter the target True Ability cap you want to precisely hit for '${statToOptimize}':`, def.c);
+                if (!targetString) return;
+                targetCap = parseInt(targetString, 10);
             }
-            
+
             const validSteps = config.classPath.filter(c => c.classId);
             if (validSteps.length === 0) {
                 alert("No classes selected.");
                 return;
             }
-            
+
             for (let i = 0; i < validSteps.length; i++) {
                 let step = validSteps[i];
                 let cls = sailorClasses.find(c => c.id == step.classId);
@@ -1085,11 +1093,11 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                     minLvl = 12;
                 }
                 if (i > 0) {
-                    minLvl = Math.max(minLvl, validSteps[i-1].level);
+                    minLvl = Math.max(minLvl, validSteps[i - 1].level);
                 }
                 step.level = minLvl;
             }
-            
+
             const testStats = CrewEngine.buildSailor(config);
             const testMetrics = CrewEngine.calculateTrueAbilities(testStats, config.role, config.recruits, config.experts, config.vets, config.nation);
             let testTA = testMetrics.ta[statToOptimize.toLowerCase()];
@@ -1101,10 +1109,10 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 alert("Cannot reach the target cap even with no delays. You need a better base sailor, more crew, or a different class path.");
                 return;
             }
-            
+
             for (let i = validSteps.length - 1; i >= 0; i--) {
                 let step = validSteps[i];
-                
+
                 // Do not attempt to delay the first class step, lock it to its required level (12)
                 if (i === 0) {
                     step.level = 12;
@@ -1114,21 +1122,21 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 let cls = sailorClasses.find(c => c.id == step.classId);
                 let minAllowed = cls ? (Number(cls.requiredLevel) || 1) : 1;
                 if (i > 0) {
-                    minAllowed = Math.max(minAllowed, validSteps[i-1].level);
+                    minAllowed = Math.max(minAllowed, validSteps[i - 1].level);
                 }
                 let maxAllowed = 125;
                 if (i < validSteps.length - 1) {
-                    maxAllowed = validSteps[i+1].level;
+                    maxAllowed = validSteps[i + 1].level;
                 }
-                
+
                 let highestTA = -1;
                 let bestLevel = minAllowed;
-                
+
                 for (let l = maxAllowed; l >= minAllowed; l--) {
                     step.level = l;
                     let loopConfig = { ...config, classPath: validSteps };
                     let loopMaxSize = getMaxCrewSize(loopConfig);
-                    
+
                     let vetPreset = row.querySelector(".vetPreset").value;
                     let targetVets = 0;
                     if (vetPreset === "max") {
@@ -1138,15 +1146,15 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                     } else {
                         targetVets = Number(vetPreset) || 0;
                     }
-                    
+
                     let loopVets = Math.min(targetVets, Math.floor(loopMaxSize * 0.5));
                     let loopExperts = loopMaxSize - loopVets;
                     let loopRecruits = 0;
-                    
+
                     let loopStats = CrewEngine.buildSailor(loopConfig);
                     let loopMetrics = CrewEngine.calculateTrueAbilities(loopStats, config.role, loopRecruits, loopExperts, loopVets, config.nation);
                     let ta = loopMetrics.ta[statToOptimize.toLowerCase()];
-                    
+
                     if (isMaxMode) {
                         if (ta > highestTA) {
                             highestTA = ta;
@@ -1161,7 +1169,7 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 }
                 step.level = bestLevel;
             }
-            
+
             const uiSteps = row.querySelectorAll(".classStep");
             let vStepIdx = 0;
             uiSteps.forEach(uiStep => {
@@ -1172,15 +1180,15 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                     vStepIdx++;
                 }
             });
-            
+
             uiSteps.forEach(uiStep => {
-                 const sel = uiStep.querySelector(".classSelect");
-                 if (sel.value) {
-                     const input = uiStep.querySelector(".classLevel");
-                     input.dispatchEvent(new Event("change"));
-                 }
+                const sel = uiStep.querySelector(".classSelect");
+                if (sel.value) {
+                    const input = uiStep.querySelector(".classLevel");
+                    input.dispatchEvent(new Event("change"));
+                }
             });
-            
+
             calculateCrew();
         }
 
@@ -1269,11 +1277,11 @@ ${taHTML}
 
             var totalsDiv = document.getElementById("crewTotals");
             if (totalsDiv) totalsDiv.style.display = "block";
-            
+
             var REPAIR_CAP = 280;
             var effectiveRepair = Math.min(totalRepair, REPAIR_CAP);
             var totalRepPct = (totalRepair / REPAIR_CAP) * 100;
-            
+
             var repHTML = `<b>Total Repair:</b> ${effectiveRepair.toFixed(3)} Rep/s`;
             if (totalRepair > REPAIR_CAP) {
                 repHTML += ` <span style="color:red; font-weight:bold;">(HARD CAPPED)</span> <i>(Raw: ${totalRepair.toFixed(3)} / ${totalRepPct.toFixed(1)}%)</i>`;
