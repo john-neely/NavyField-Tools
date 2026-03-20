@@ -43,50 +43,55 @@
 
 <body>
 
-    <h2>NAVYFIELD Crew Planner</h2>
+    <div style="position: sticky; top: 0; background: white; z-index: 100; margin: -20px -20px 20px -20px; padding: 20px; border-bottom: 2px solid #aaa;">
+        <h2 style="margin-top: 0;">NAVYFIELD Crew Planner</h2>
 
-    <div class="controls">
+        <div class="controls" style="margin-bottom: 0;">
 
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-            <div>
-                Select Nation
-                <select id="nationSelect"></select>
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <div>
+                    Select Nation
+                    <select id="nationSelect"></select>
+                </div>
+                <div>
+                    Ship Class
+                    <select id="shipCategory"></select>
+                </div>
+                <div>
+                    Ship
+                    <select id="shipSelect"></select>
+                </div>
+                <button onclick="buildCrew()" style="margin: 0;">Build Crew</button>
             </div>
-            <div>
-                Ship Class
-                <select id="shipCategory"></select>
-            </div>
-            <div>
-                Ship
-                <select id="shipSelect"></select>
-            </div>
-            <button onclick="buildCrew()" style="margin: 0;">Build Crew</button>
+
+            <br>
+
+            Save Name
+            <input id="buildName">
+
+            <button onclick="saveBuild()">Save Build</button>
+
+            <br>
+
+            Saved Builds
+            <select id="savedBuilds"></select>
+
+            <button onclick="loadBuild()">Load</button>
+
+            <br><br>
+
+            Prebuilt Builds
+            <select id="presetBuilds"></select>
+
+            <button onclick="loadPreset()">Load Preset</button>
+            <button onclick="calculateCrew()">Calculate Stats</button>
+            
+            <span style="border-left: 2px solid #ccc; margin: 0 10px; padding-left: 5px;"></span>
+            <button onclick="addRow()">Add Sailor</button>
+            <button onclick="refreshRows()">Refresh</button>
+            <button onclick="newCrew()">Start Over</button>
+
         </div>
-
-
-        <br>
-
-        Save Name
-        <input id="buildName">
-
-        <button onclick="saveBuild()">Save Build</button>
-
-        <br>
-
-        Saved Builds
-        <select id="savedBuilds"></select>
-
-        <button onclick="loadBuild()">Load</button>
-
-        <br><br>
-
-        Prebuilt Builds
-        <select id="presetBuilds"></select>
-
-        <button onclick="loadPreset()">Load Preset</button>
-        <button onclick="calculateCrew()">Calculate Stats</button>
-        <br>
-
     </div>
 
     <table id="crewTable">
@@ -116,19 +121,12 @@
 
     <br>
 
-    <button onclick="addRow()">Add Sailor</button>
-    <button onclick="refreshRows()">Refresh</button>
-    <button onclick="newCrew()">Start Over</button>
+    Export / Import Build Files
+
     <br><br>
-
-    Export / Import
-
-    <br>
-    <textarea id="exportBox" style="width:100%;height:70px"></textarea>
-
-    <br>
-    <button onclick="exportBuild()">Export Build</button>
-    <button onclick="importBuild()">Import Build</button>
+    <button onclick="exportBuild()">Download Build (.json)</button>
+    <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importBuildFile(event)">
+    <button onclick="document.getElementById('importFile').click()">Load Build (.json)</button>
 
 
     <script>
@@ -360,10 +358,18 @@ ${premSailors.map(s => `<option>${s.type}</option>`).join("")}
 
 <td>
 <div style="font-size:12px; text-align:left; display:inline-block;">
-R: <input type="number" class="recInput" style="width:50px" value="0" min="0"><br>
-E: <input type="number" class="expInput" style="width:50px" value="300" min="0"><br>
-V: <input type="number" class="vetInput" style="width:50px" value="150" min="0"><br>
-Total: <span class="totalCrewDisplay">450</span>
+R: <input type="number" class="recInput" style="width:40px" value="0" min="0"><br>
+E: <input type="number" class="expInput" style="width:40px" value="0" min="0"><br>
+V: <input type="number" class="vetInput" style="width:40px" value="0" min="0">
+<select class="vetPreset" onchange="applyVetPreset(this)" style="font-size:10px; width:55px;">
+  <option value="max" selected>Max</option>
+  <option value="100">100</option>
+  <option value="150">150</option>
+  <option value="200">200</option>
+  <option value="250">250</option>
+  <option value="custom">Custom</option>
+</select><br>
+Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0</span>
 </div>
 </td>
 
@@ -383,17 +389,38 @@ Total: <span class="totalCrewDisplay">450</span>
             tbody.appendChild(row)
             buildClassStep(row)
 
-            const updateCrewTotal = () => {
-                const r = Number(row.querySelector(".recInput").value) || 0;
-                const e = Number(row.querySelector(".expInput").value) || 0;
-                const v = Number(row.querySelector(".vetInput").value) || 0;
-                row.querySelector(".totalCrewDisplay").innerText = r + e + v;
+            const updateCrewTotal = (eObj) => {
+                const maxSize = Number(row.querySelector(".maxCrewDisplay").innerText) || 0;
+                let r = Number(row.querySelector(".recInput").value) || 0;
+                let e = Number(row.querySelector(".expInput").value) || 0;
+                let v = Number(row.querySelector(".vetInput").value) || 0;
+                
+                if (eObj && eObj.target === row.querySelector(".vetInput")) {
+                   row.querySelector(".vetPreset").value = "custom";
+                   let maxVets = Math.floor(maxSize * 0.5);
+                   if (v > maxVets) {
+                       v = maxVets;
+                       row.querySelector(".vetInput").value = v;
+                   }
+                }
+
+                let total = r + e + v;
+                let totalSpan = row.querySelector(".totalCrewDisplay");
+                totalSpan.innerText = total;
+                if (total > maxSize) {
+                    totalSpan.style.color = "red";
+                    totalSpan.style.fontWeight = "bold";
+                } else {
+                    totalSpan.style.color = "black";
+                    totalSpan.style.fontWeight = "normal";
+                }
             };
 
             row.querySelector(".recInput").addEventListener("input", updateCrewTotal);
             row.querySelector(".expInput").addEventListener("input", updateCrewTotal);
             row.querySelector(".vetInput").addEventListener("input", updateCrewTotal);
-            updateCrewTotal();
+            
+            updateMaxCrewSize(row);
 
         }
 
@@ -748,6 +775,7 @@ Total: <span class="totalCrewDisplay">450</span>
                         nextInput.dispatchEvent(new Event("change"));
                     }
                 }
+                updateMaxCrewSize(row);
             }
             levelInput.addEventListener("change", enforceMinLevel);
 
@@ -836,6 +864,8 @@ Total: <span class="totalCrewDisplay">450</span>
                     buildClassStep(row, classSelect.value)
 
                 }
+                
+                updateMaxCrewSize(row);
 
             })
 
@@ -864,34 +894,134 @@ Total: <span class="totalCrewDisplay">450</span>
         populateCategories()
         updateSaved()
         function exportBuild() {
-
             const data = getUIState()
-
-            const encoded = btoa(JSON.stringify(data))
-
-            document.getElementById("exportBox").value = encoded
-
+            const jsonStr = JSON.stringify(data, null, 2)
+            const blob = new Blob([jsonStr], { type: "application/json" })
+            const url = URL.createObjectURL(blob)
+            
+            let a = document.createElement("a")
+            a.href = url
+            let name = document.getElementById("buildName").value || "NavyFieldBuild"
+            a.download = name + ".json"
+            
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+            URL.revokeObjectURL(url)
         }
 
+        function importBuildFile(event) {
+            const file = event.target.files[0]
+            if (!file) return
+            
+            const reader = new FileReader()
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result)
+                    setUIState(data)
+                } catch (err) {
+                    alert("Invalid build file.")
+                }
+            }
+            reader.readAsText(file)
+            
+            event.target.value = ""
+        }
 
+        function applyVetPreset(sel) {
+            const row = sel.closest("tr");
+            const maxSize = Number(row.querySelector(".maxCrewDisplay").innerText) || 0;
+            const vInput = row.querySelector(".vetInput");
+            const eInput = row.querySelector(".expInput");
+            
+            if (sel.value === "custom") return;
+            
+            let target = 0;
+            if (sel.value === "max") {
+                target = Math.floor(maxSize * 0.5);
+            } else {
+                target = Number(sel.value) || 0;
+            }
+            
+            let oldV = Number(vInput.value) || 0;
+            let newV = Math.min(target, Math.floor(maxSize * 0.5));
+            vInput.value = newV;
+            
+            let e = Number(eInput.value) || 0;
+            eInput.value = Math.max(0, e - (newV - oldV));
+            
+            vInput.dispatchEvent(new Event("input"));
+        }
 
-        function importBuild() {
+        function getMaxCrewSize(config) {
+            let size = 55;
+            let currentLevel = 1;
+            let currentRecruitsPerLevel = 5;
 
-            const encoded = document.getElementById("exportBox").value.trim()
+            config.classPath.forEach(step => {
+                if (!step.classId) return;
+                
+                const levels = Math.max(0, step.level - currentLevel);
+                size += levels * currentRecruitsPerLevel;
+                
+                const cls = sailorClasses.find(c => c.id == step.classId);
+                if (cls && cls.recruitsPerLevel) {
+                   currentRecruitsPerLevel = cls.recruitsPerLevel;
+                }
+                currentLevel = Math.max(currentLevel, step.level);
+            });
 
-            if (!encoded) return alert("Paste build code")
-
-            let data
-
-            try {
-                data = JSON.parse(atob(encoded))
-            } catch {
-                alert("Invalid build code")
-                return
+            if (currentLevel < config.finalLevel) {
+                const levels = config.finalLevel - currentLevel;
+                size += levels * currentRecruitsPerLevel;
             }
 
-            setUIState(data)
+            return size;
+        }
 
+        function updateMaxCrewSize(row) {
+            const classes = [...row.querySelectorAll(".classSelect")].map(c => c.value);
+            const levels = [...row.querySelectorAll(".classLevel")].map(l => Number(l.value));
+            const classPath = classes.map((c, i) => ({ classId: Number(c), level: levels[i] }));
+            const maxSize = getMaxCrewSize({ classPath: classPath, finalLevel: 125 });
+            
+            const maxSpan = row.querySelector(".maxCrewDisplay");
+            if (!maxSpan) return;
+            const oldMax = Number(maxSpan.innerText) || 0;
+            maxSpan.innerText = maxSize;
+            
+            const rInput = row.querySelector(".recInput");
+            const eInput = row.querySelector(".expInput");
+            const vInput = row.querySelector(".vetInput");
+            
+            let r = Number(rInput.value) || 0;
+            let e = Number(eInput.value) || 0;
+            let v = Number(vInput.value) || 0;
+
+            if (oldMax === 0 && r === 0 && e === 0 && v === 0) {
+                eInput.value = maxSize;
+                const preset = row.querySelector(".vetPreset");
+                if (preset && preset.value !== "custom") {
+                    applyVetPreset(preset);
+                }
+            } else {
+                let diff = maxSize - oldMax;
+                if (diff !== 0) {
+                    eInput.value = Math.max(0, e + diff);
+                }
+            }
+            
+            const rReal = Number(rInput.value) || 0;
+            const totalSpan = row.querySelector(".totalCrewDisplay");
+            let total = rReal + e + v;
+            totalSpan.innerText = total;
+            if (total > maxSize) {
+                totalSpan.style.color = "red";
+                totalSpan.style.fontWeight = "bold";
+            } else {
+                totalSpan.style.color = "black";
+                totalSpan.style.fontWeight = "normal";
+            }
         }
 
         function gatherCrewData() {
@@ -1027,8 +1157,25 @@ Total: <span class="totalCrewDisplay">450</span>
                 let bestLevel = minAllowed;
                 for (let l = maxAllowed; l >= minAllowed; l--) {
                     step.level = l;
-                    let loopStats = CrewEngine.buildSailor(config);
-                    let loopMetrics = CrewEngine.calculateTrueAbilities(loopStats, config.role, config.recruits, config.experts, config.vets, config.nation);
+                    let loopConfig = { ...config, classPath: validSteps };
+                    let loopMaxSize = getMaxCrewSize(loopConfig);
+                    
+                    let vetPreset = row.querySelector(".vetPreset").value;
+                    let targetVets = 0;
+                    if (vetPreset === "max") {
+                        targetVets = Math.floor(loopMaxSize * 0.5);
+                    } else if (vetPreset === "custom") {
+                        targetVets = Number(row.querySelector(".vetInput").value) || 0;
+                    } else {
+                        targetVets = Number(vetPreset) || 0;
+                    }
+                    
+                    let loopVets = Math.min(targetVets, Math.floor(loopMaxSize * 0.5));
+                    let loopExperts = loopMaxSize - loopVets;
+                    let loopRecruits = 0;
+                    
+                    let loopStats = CrewEngine.buildSailor(loopConfig);
+                    let loopMetrics = CrewEngine.calculateTrueAbilities(loopStats, config.role, loopRecruits, loopExperts, loopVets, config.nation);
                     let ta = loopMetrics.ta[statToOptimize.toLowerCase()];
                     if (ta >= targetCap) {
                         bestLevel = l;
