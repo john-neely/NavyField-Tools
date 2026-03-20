@@ -3,13 +3,13 @@ NATIONS
 ========================= */
 
 const nations = [
-    { Nation_ID: 0, Nation: "US", Accuracy: 2, Restore: 2 },
-    { Nation_ID: 1, Nation: "UK", Torpedo: 2, AAW: 2 },
-    { Nation_ID: 2, Nation: "KM", Accuracy: 2, Reload: 2, Restore: 2, Aircraft: 2 },
-    { Nation_ID: 3, Nation: "IJN", Reload: 2, Fighter: 2 },
-    { Nation_ID: 4, Nation: "MN", AAW: 2, Engine: 2 },
-    { Nation_ID: 5, Nation: "SN", Repair: 2, Engine: 2 },
-    { Nation_ID: 6, Nation: "RM", Accuracy: 2, Aircraft: 2 },
+    { Nation_ID: 0, Nation: "US", AAW: 2, Fighter: 2 },
+    { Nation_ID: 1, Nation: "UK", Restore: 2, Repair: 2 },
+    { Nation_ID: 2, Nation: "KM", Accuracy: 2, Reload: 2, Engine: 2, Fighter: 2 },
+    { Nation_ID: 3, Nation: "IJN", Torpedo: 2, Bomber: 2 },
+    { Nation_ID: 4, Nation: "MN", Restore: 2, Fighter: 2 },
+    { Nation_ID: 5, Nation: "SN", Engine: 2, Bomber: 2 },
+    { Nation_ID: 6, Nation: "RM", Reload: 2, Fighter: 2 },
     { Nation_ID: 7, Nation: "CN" } // no stats
 ];
 
