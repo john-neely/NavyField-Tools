@@ -91,6 +91,11 @@
             <button onclick="refreshRows()">Refresh</button>
             <button onclick="newCrew()">Start Over</button>
 
+            <div id="crewTotals" style="margin-top:10px; font-size:14px; padding:10px; background:#f0f0f0; border:1px solid #ccc; display:none;">
+                <div id="repairTotal"></div>
+                <div id="engineTotal"></div>
+            </div>
+
         </div>
     </div>
 
@@ -113,11 +118,6 @@
 
     </table>
 
-    <div id="crewTotals"
-        style="margin-top:20px; font-size:14px; padding:10px; background:#f0f0f0; border:1px solid #ccc; display:none;">
-        <div id="repairTotal"></div>
-        <div id="engineTotal"></div>
-    </div>
 
     <br>
 
@@ -1096,10 +1096,10 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             
             const def = getDefaultOpt(config.role, config.nation);
             
-            const statToOptimize = prompt("Enter stat to optimize (e.g. reload, accuracy, torpedo, engine, repair, fighter, bomber, aircraft, potential):", def.s);
+            const statToOptimize = prompt(`To maximize Repair (or other off-stats), simply tell me your MAIN ROLE stat to cap. The optimizer will automatically delay your classes as long as medically possible to preserve your Repair stats!\n\nStat to hit cap for (e.g. reload, accuracy, torpedo, engine, fighter, bomber, aircraft, potential):`, def.s);
             if (!statToOptimize) return;
             
-            const targetString = prompt(`Enter the target True Ability cap for ${statToOptimize}:`, def.c);
+            const targetString = prompt(`Enter the target True Ability cap you want to precisely hit for '${statToOptimize}':`, def.c);
             if (!targetString) return;
             const targetCap = parseInt(targetString, 10);
             
@@ -1289,10 +1289,17 @@ ${taHTML}
 
             const totalsDiv = document.getElementById("crewTotals").style.display = "block"
             const REPAIR_CAP = 280;
+            let effectiveRepair = Math.min(totalRepair, REPAIR_CAP);
             const totalRepPct = (totalRepair / REPAIR_CAP) * 100;
-            document.getElementById("repairTotal").innerHTML = `<b>Total Repair:</b> ${totalRepair.toFixed(3)} Rep/s`
+            
+            let repHTML = `<b>Total Repair:</b> ${effectiveRepair.toFixed(3)} Rep/s`;
+            if (totalRepair > REPAIR_CAP) {
+                repHTML += ` <span style="color:red; font-weight:bold;">(HARD CAPPED)</span> <i>(Raw: ${totalRepair.toFixed(3)} / ${totalRepPct.toFixed(1)}%)</i>`;
+            } else {
+                repHTML += ` (${totalRepPct.toFixed(1)}% of cap)`;
+            }
+            document.getElementById("repairTotal").innerHTML = repHTML;
             document.getElementById("engineTotal").innerHTML = `<b>Total Engine:</b> ${totalEngine.toFixed(3)} OH/s<br><b>Total Crew Weight:</b> ${totalWeight.toFixed(0)}t`
-            document.getElementById("repairTotal").innerHTML += " (" + totalRepPct.toFixed(1) + "% of cap)";
 
         }
     </script>
