@@ -5,6 +5,7 @@ window.sailorClasses = [
     "name": "2nd Sonarman",
     "requiredLevel": 12,
     "requiredPoint": 6000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -25,6 +26,7 @@ window.sailorClasses = [
     "name": "Armament Sailor",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": -14,
       "accuracy": 8,
@@ -45,6 +47,7 @@ window.sailorClasses = [
     "name": "Bridge Operator",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 2
     }
@@ -55,6 +58,7 @@ window.sailorClasses = [
     "name": "Sailor",
     "requiredLevel": 12,
     "requiredPoint": 200,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "aaw": 2,
       "fighter": 2
@@ -66,6 +70,7 @@ window.sailorClasses = [
     "name": "Special Force",
     "requiredLevel": 12,
     "requiredPoint": 8500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -86,6 +91,7 @@ window.sailorClasses = [
     "name": "Support Sailor",
     "requiredLevel": 12,
     "requiredPoint": 5000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -106,6 +112,7 @@ window.sailorClasses = [
     "name": "2nd AA Gunner",
     "requiredLevel": 20,
     "requiredPoint": 22000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": -7,
@@ -126,6 +133,7 @@ window.sailorClasses = [
     "name": "2nd Seaman",
     "requiredLevel": 20,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {}
   },
   {
@@ -134,6 +142,7 @@ window.sailorClasses = [
     "name": "Accu Gunner",
     "requiredLevel": 22,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": 4,
@@ -153,6 +162,7 @@ window.sailorClasses = [
     "name": "Reload Gunner",
     "requiredLevel": 22,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "reload": 4,
@@ -172,6 +182,7 @@ window.sailorClasses = [
     "name": "Rookie Pilot",
     "requiredLevel": 25,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -2,
       "accuracy": -2,
@@ -190,6 +201,7 @@ window.sailorClasses = [
     "name": "Torpedo Man",
     "requiredLevel": 25,
     "requiredPoint": 26000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": -7,
@@ -210,6 +222,7 @@ window.sailorClasses = [
     "name": "2nd Repair Man",
     "requiredLevel": 26,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -230,6 +243,7 @@ window.sailorClasses = [
     "name": "2nd Restorer",
     "requiredLevel": 28,
     "requiredPoint": 28000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -250,6 +264,7 @@ window.sailorClasses = [
     "name": "2nd Engineer",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -270,6 +285,7 @@ window.sailorClasses = [
     "name": "2nd Planesman",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -290,6 +306,7 @@ window.sailorClasses = [
     "name": "1st AA Gunner",
     "requiredLevel": 40,
     "requiredPoint": 36000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -303,6 +320,7 @@ window.sailorClasses = [
     "name": "1st Seaman",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {}
   },
   {
@@ -311,6 +329,7 @@ window.sailorClasses = [
     "name": "Fighter Pilot",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": 4,
@@ -323,6 +342,7 @@ window.sailorClasses = [
     "name": "Accu Heavy Gunner",
     "requiredLevel": 42,
     "requiredPoint": 40000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": 3,
       "torpedo": -5,
@@ -335,6 +355,7 @@ window.sailorClasses = [
     "name": "Reload Heavy Gunner",
     "requiredLevel": 42,
     "requiredPoint": 40000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "reload": 3,
       "torpedo": -5,
@@ -347,6 +368,7 @@ window.sailorClasses = [
     "name": "1st Sonarman",
     "requiredLevel": 43,
     "requiredPoint": 43000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -367,6 +389,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber Pilot",
     "requiredLevel": 45,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -379,6 +402,7 @@ window.sailorClasses = [
     "name": "1st Repair Man",
     "requiredLevel": 50,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": 4,
@@ -392,6 +416,7 @@ window.sailorClasses = [
     "name": "Recon Pilot",
     "requiredLevel": 50,
     "requiredPoint": 49000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -400,6 +425,7 @@ window.sailorClasses = [
     "name": "1st Restorer",
     "requiredLevel": 52,
     "requiredPoint": 46000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -413,6 +439,7 @@ window.sailorClasses = [
     "name": "Dive Bomber Pilot",
     "requiredLevel": 53,
     "requiredPoint": 50000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -425,6 +452,7 @@ window.sailorClasses = [
     "name": "1st Engineer",
     "requiredLevel": 54,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -438,6 +466,7 @@ window.sailorClasses = [
     "name": "1st Planesman",
     "requiredLevel": 57,
     "requiredPoint": 57000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -458,6 +487,7 @@ window.sailorClasses = [
     "name": "Ace Fighter Pilot",
     "requiredLevel": 60,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": 3,
@@ -470,6 +500,7 @@ window.sailorClasses = [
     "name": "Chief AA Gunner",
     "requiredLevel": 60,
     "requiredPoint": 50000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -483,6 +514,7 @@ window.sailorClasses = [
     "name": "Accu Huge Gunner",
     "requiredLevel": 65,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": 2,
       "torpedo": -4,
@@ -495,6 +527,7 @@ window.sailorClasses = [
     "name": "Ace Torpedo Bomber Pilot",
     "requiredLevel": 65,
     "requiredPoint": 58000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -507,6 +540,7 @@ window.sailorClasses = [
     "name": "Reload Huge Gunner",
     "requiredLevel": 65,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "reload": 2,
       "torpedo": -4,
@@ -519,6 +553,7 @@ window.sailorClasses = [
     "name": "Ace Dive Bomber Pilot",
     "requiredLevel": 68,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": -4,
@@ -531,6 +566,7 @@ window.sailorClasses = [
     "name": "Chief Sonarman",
     "requiredLevel": 69,
     "requiredPoint": 69000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -551,6 +587,7 @@ window.sailorClasses = [
     "name": "Chief Seaman",
     "requiredLevel": 70,
     "requiredPoint": 65000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {}
   },
   {
@@ -559,6 +596,7 @@ window.sailorClasses = [
     "name": "Fighter SQ.Ldr",
     "requiredLevel": 75,
     "requiredPoint": 74000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": 2,
@@ -571,6 +609,7 @@ window.sailorClasses = [
     "name": "Chief Planesman",
     "requiredLevel": 79,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -591,6 +630,7 @@ window.sailorClasses = [
     "name": "Ace Recon Pilot",
     "requiredLevel": 80,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -599,6 +639,7 @@ window.sailorClasses = [
     "name": "2nd Sonarman",
     "requiredLevel": 12,
     "requiredPoint": 6000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -619,6 +660,7 @@ window.sailorClasses = [
     "name": "Armament Sailor",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": -14,
       "accuracy": 8,
@@ -639,6 +681,7 @@ window.sailorClasses = [
     "name": "Bridge Operator",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 2
     }
@@ -649,6 +692,7 @@ window.sailorClasses = [
     "name": "Sailor",
     "requiredLevel": 12,
     "requiredPoint": 200,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "repair": 2,
       "restore": 2
@@ -660,6 +704,7 @@ window.sailorClasses = [
     "name": "Special Force",
     "requiredLevel": 12,
     "requiredPoint": 8500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -680,6 +725,7 @@ window.sailorClasses = [
     "name": "Support Sailor",
     "requiredLevel": 12,
     "requiredPoint": 5000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -700,6 +746,7 @@ window.sailorClasses = [
     "name": "2nd AA Gunner",
     "requiredLevel": 20,
     "requiredPoint": 22000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": -7,
@@ -720,6 +767,7 @@ window.sailorClasses = [
     "name": "2nd Seaman",
     "requiredLevel": 20,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {}
   },
   {
@@ -728,6 +776,7 @@ window.sailorClasses = [
     "name": "Gunner",
     "requiredLevel": 22,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": 4,
@@ -748,6 +797,7 @@ window.sailorClasses = [
     "name": "2nd Repair Man",
     "requiredLevel": 24,
     "requiredPoint": 22000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -768,6 +818,7 @@ window.sailorClasses = [
     "name": "Rookie Pilot",
     "requiredLevel": 25,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -2,
       "accuracy": -2,
@@ -786,6 +837,7 @@ window.sailorClasses = [
     "name": "Torpedo Man",
     "requiredLevel": 25,
     "requiredPoint": 25000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": -7,
@@ -806,6 +858,7 @@ window.sailorClasses = [
     "name": "2nd Restorer",
     "requiredLevel": 26,
     "requiredPoint": 26000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -826,6 +879,7 @@ window.sailorClasses = [
     "name": "2nd Engineer",
     "requiredLevel": 29,
     "requiredPoint": 29000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -846,6 +900,7 @@ window.sailorClasses = [
     "name": "2nd Planesman",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -866,6 +921,7 @@ window.sailorClasses = [
     "name": "1st AA Gunner",
     "requiredLevel": 40,
     "requiredPoint": 36000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -879,6 +935,7 @@ window.sailorClasses = [
     "name": "1st Seaman",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {}
   },
   {
@@ -887,6 +944,7 @@ window.sailorClasses = [
     "name": "Fighter Pilot",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": 4,
@@ -899,6 +957,7 @@ window.sailorClasses = [
     "name": "Accu Heavy Gunner",
     "requiredLevel": 42,
     "requiredPoint": 40000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": 8,
       "reload": -10,
@@ -912,6 +971,7 @@ window.sailorClasses = [
     "name": "Reload Heavy Gunner",
     "requiredLevel": 42,
     "requiredPoint": 40000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -10,
       "reload": 8,
@@ -925,6 +985,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber Pilot",
     "requiredLevel": 42,
     "requiredPoint": 43000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -937,6 +998,7 @@ window.sailorClasses = [
     "name": "Heavy Torpedo Man",
     "requiredLevel": 44,
     "requiredPoint": 43000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -950,6 +1012,7 @@ window.sailorClasses = [
     "name": "1st Sonarman",
     "requiredLevel": 45,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -970,6 +1033,7 @@ window.sailorClasses = [
     "name": "1st Repair Man",
     "requiredLevel": 49,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": 3,
@@ -983,6 +1047,7 @@ window.sailorClasses = [
     "name": "Recon Pilot",
     "requiredLevel": 50,
     "requiredPoint": 49000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -991,6 +1056,7 @@ window.sailorClasses = [
     "name": "1st Restorer",
     "requiredLevel": 51,
     "requiredPoint": 46000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -1004,6 +1070,7 @@ window.sailorClasses = [
     "name": "1st Engineer",
     "requiredLevel": 53,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -1017,6 +1084,7 @@ window.sailorClasses = [
     "name": "Dive Bomber Pilot",
     "requiredLevel": 55,
     "requiredPoint": 52000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5
@@ -1028,6 +1096,7 @@ window.sailorClasses = [
     "name": "1st Planesman",
     "requiredLevel": 56,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -1048,6 +1117,7 @@ window.sailorClasses = [
     "name": "Ace Fighter Pilot",
     "requiredLevel": 60,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": 3,
@@ -1060,6 +1130,7 @@ window.sailorClasses = [
     "name": "Ace Torpedo Bomber Pilot",
     "requiredLevel": 62,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -1072,6 +1143,7 @@ window.sailorClasses = [
     "name": "Accu Huge Gunner",
     "requiredLevel": 65,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": 6,
       "reload": -4,
@@ -1085,6 +1157,7 @@ window.sailorClasses = [
     "name": "Chief Repair Man",
     "requiredLevel": 65,
     "requiredPoint": 51000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "repair": 2
     }
@@ -1095,6 +1168,7 @@ window.sailorClasses = [
     "name": "Reload Huge Gunner",
     "requiredLevel": 65,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": -4,
       "reload": 6,
@@ -1108,6 +1182,7 @@ window.sailorClasses = [
     "name": "Chief Restorer",
     "requiredLevel": 68,
     "requiredPoint": 53000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "restore": 2
     }
@@ -1118,6 +1193,7 @@ window.sailorClasses = [
     "name": "Chief Seaman",
     "requiredLevel": 70,
     "requiredPoint": 65000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {}
   },
   {
@@ -1126,6 +1202,7 @@ window.sailorClasses = [
     "name": "Chief Sonarman",
     "requiredLevel": 70,
     "requiredPoint": 70000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -1146,6 +1223,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber SQ.Ldr",
     "requiredLevel": 75,
     "requiredPoint": 70000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": -4,
@@ -1158,6 +1236,7 @@ window.sailorClasses = [
     "name": "Ace Recon Pilot",
     "requiredLevel": 80,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -1166,6 +1245,7 @@ window.sailorClasses = [
     "name": "Chief Planesman",
     "requiredLevel": 80,
     "requiredPoint": 80000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -1186,6 +1266,7 @@ window.sailorClasses = [
     "name": "2nd Sonarman",
     "requiredLevel": 12,
     "requiredPoint": 6000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -1206,6 +1287,7 @@ window.sailorClasses = [
     "name": "Armament Sailor",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": -14,
       "accuracy": 8,
@@ -1226,6 +1308,7 @@ window.sailorClasses = [
     "name": "Bridge Operator",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 2
     }
@@ -1236,6 +1319,7 @@ window.sailorClasses = [
     "name": "Sailor",
     "requiredLevel": 12,
     "requiredPoint": 200,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "engine": 2,
       "bomber": 2
@@ -1247,6 +1331,7 @@ window.sailorClasses = [
     "name": "Special Force",
     "requiredLevel": 12,
     "requiredPoint": 8500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -1267,6 +1352,7 @@ window.sailorClasses = [
     "name": "Support Sailor",
     "requiredLevel": 12,
     "requiredPoint": 5000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -1287,6 +1373,7 @@ window.sailorClasses = [
     "name": "2nd Seaman",
     "requiredLevel": 20,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {}
   },
   {
@@ -1295,6 +1382,7 @@ window.sailorClasses = [
     "name": "Gunner",
     "requiredLevel": 23,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": 4,
@@ -1315,6 +1403,7 @@ window.sailorClasses = [
     "name": "Rookie Pilot",
     "requiredLevel": 25,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -2,
       "accuracy": -2,
@@ -1333,6 +1422,7 @@ window.sailorClasses = [
     "name": "2nd Repair Man",
     "requiredLevel": 26,
     "requiredPoint": 26000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -1353,6 +1443,7 @@ window.sailorClasses = [
     "name": "2nd Restorer",
     "requiredLevel": 28,
     "requiredPoint": 28000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -1373,6 +1464,7 @@ window.sailorClasses = [
     "name": "2nd Engineer",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -1393,6 +1485,7 @@ window.sailorClasses = [
     "name": "2nd Planesman",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -1413,6 +1506,7 @@ window.sailorClasses = [
     "name": "1st Seaman",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {}
   },
   {
@@ -1421,6 +1515,7 @@ window.sailorClasses = [
     "name": "Fighter Pilot",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": 5,
@@ -1433,6 +1528,7 @@ window.sailorClasses = [
     "name": "Heavy Gunner",
     "requiredLevel": 43,
     "requiredPoint": 41000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": 3,
       "reload": 3,
@@ -1446,6 +1542,7 @@ window.sailorClasses = [
     "name": "1st Sonarman",
     "requiredLevel": 44,
     "requiredPoint": 44000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -1466,6 +1563,7 @@ window.sailorClasses = [
     "name": "Heavy Torpedo Man",
     "requiredLevel": 44,
     "requiredPoint": 44000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -1479,6 +1577,7 @@ window.sailorClasses = [
     "name": "Dive Bomber Pilot",
     "requiredLevel": 48,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -1491,6 +1590,7 @@ window.sailorClasses = [
     "name": "1st Repair Man",
     "requiredLevel": 50,
     "requiredPoint": 47000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": 3,
@@ -1504,6 +1604,7 @@ window.sailorClasses = [
     "name": "Recon Pilot",
     "requiredLevel": 50,
     "requiredPoint": 49000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -1512,6 +1613,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber Pilot",
     "requiredLevel": 50,
     "requiredPoint": 50000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -1524,6 +1626,7 @@ window.sailorClasses = [
     "name": "1st Restorer",
     "requiredLevel": 52,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -4,
@@ -1537,6 +1640,7 @@ window.sailorClasses = [
     "name": "1st Engineer",
     "requiredLevel": 54,
     "requiredPoint": 50000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -1550,6 +1654,7 @@ window.sailorClasses = [
     "name": "1st Planesman",
     "requiredLevel": 55,
     "requiredPoint": 55000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -1570,6 +1675,7 @@ window.sailorClasses = [
     "name": "Ace Dive Bomber Pilot",
     "requiredLevel": 62,
     "requiredPoint": 58000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -4,
       "fighter": -6,
@@ -1582,6 +1688,7 @@ window.sailorClasses = [
     "name": "Ace Fighter Pilot",
     "requiredLevel": 62,
     "requiredPoint": 62000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": 3,
@@ -1594,6 +1701,7 @@ window.sailorClasses = [
     "name": "Huge Gunner",
     "requiredLevel": 65,
     "requiredPoint": 55000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2,
@@ -1607,6 +1715,7 @@ window.sailorClasses = [
     "name": "Chief Engineer",
     "requiredLevel": 66,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "repair": -3,
       "restore": -4,
@@ -1619,6 +1728,7 @@ window.sailorClasses = [
     "name": "Ace Torpedo Bomber Pilot",
     "requiredLevel": 68,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -1631,6 +1741,7 @@ window.sailorClasses = [
     "name": "Chief Seaman",
     "requiredLevel": 70,
     "requiredPoint": 65000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {}
   },
   {
@@ -1639,6 +1750,7 @@ window.sailorClasses = [
     "name": "Chief Sonarman",
     "requiredLevel": 71,
     "requiredPoint": 71000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -1659,6 +1771,7 @@ window.sailorClasses = [
     "name": "Dive Bomber SQ.Ldr",
     "requiredLevel": 75,
     "requiredPoint": 74000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": -4,
@@ -1671,6 +1784,7 @@ window.sailorClasses = [
     "name": "Chief Planesman",
     "requiredLevel": 78,
     "requiredPoint": 78000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -1691,6 +1805,7 @@ window.sailorClasses = [
     "name": "Chief Gunner",
     "requiredLevel": 79,
     "requiredPoint": 77000,
+    "recruitsPerLevel": 10,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2
@@ -1702,6 +1817,7 @@ window.sailorClasses = [
     "name": "Ace Recon Pilot",
     "requiredLevel": 80,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -1710,6 +1826,7 @@ window.sailorClasses = [
     "name": "2nd Sonarman",
     "requiredLevel": 12,
     "requiredPoint": 6000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -1730,6 +1847,7 @@ window.sailorClasses = [
     "name": "Armament Sailor",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": -14,
       "accuracy": 7,
@@ -1750,6 +1868,7 @@ window.sailorClasses = [
     "name": "Bridge Operator",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 2
     }
@@ -1760,6 +1879,7 @@ window.sailorClasses = [
     "name": "Sailor",
     "requiredLevel": 12,
     "requiredPoint": 200,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "reload": 2,
       "fighter": 2
@@ -1771,6 +1891,7 @@ window.sailorClasses = [
     "name": "Special Force",
     "requiredLevel": 12,
     "requiredPoint": 8500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -1791,6 +1912,7 @@ window.sailorClasses = [
     "name": "Support Sailor",
     "requiredLevel": 12,
     "requiredPoint": 5000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -1811,6 +1933,7 @@ window.sailorClasses = [
     "name": "2nd Seaman",
     "requiredLevel": 20,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {}
   },
   {
@@ -1819,6 +1942,7 @@ window.sailorClasses = [
     "name": "Gunner",
     "requiredLevel": 22,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": 3,
@@ -1839,6 +1963,7 @@ window.sailorClasses = [
     "name": "2nd Repair Man",
     "requiredLevel": 25,
     "requiredPoint": 26000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -1859,6 +1984,7 @@ window.sailorClasses = [
     "name": "Rookie Pilot",
     "requiredLevel": 25,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -2,
       "accuracy": -2,
@@ -1877,6 +2003,7 @@ window.sailorClasses = [
     "name": "2nd Restorer",
     "requiredLevel": 28,
     "requiredPoint": 28000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -1897,6 +2024,7 @@ window.sailorClasses = [
     "name": "2nd Engineer",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -1917,6 +2045,7 @@ window.sailorClasses = [
     "name": "2nd Planesman",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -1937,6 +2066,7 @@ window.sailorClasses = [
     "name": "1st Seaman",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {}
   },
   {
@@ -1945,6 +2075,7 @@ window.sailorClasses = [
     "name": "Fighter Pilot",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": 4,
@@ -1957,6 +2088,7 @@ window.sailorClasses = [
     "name": "Heavy Gunner",
     "requiredLevel": 42,
     "requiredPoint": 41000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 4,
@@ -1970,6 +2102,7 @@ window.sailorClasses = [
     "name": "Heavy Torpedo Man",
     "requiredLevel": 44,
     "requiredPoint": 44000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -1983,6 +2116,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber Pilot",
     "requiredLevel": 44,
     "requiredPoint": 50000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -1995,6 +2129,7 @@ window.sailorClasses = [
     "name": "1st Sonarman",
     "requiredLevel": 45,
     "requiredPoint": 44000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -2015,6 +2150,7 @@ window.sailorClasses = [
     "name": "Dive Bomber Pilot",
     "requiredLevel": 48,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -6,
       "fighter": -6,
@@ -2027,6 +2163,7 @@ window.sailorClasses = [
     "name": "1st Repair Man",
     "requiredLevel": 50,
     "requiredPoint": 47000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": 3,
@@ -2040,6 +2177,7 @@ window.sailorClasses = [
     "name": "Recon Pilot",
     "requiredLevel": 50,
     "requiredPoint": 49000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -2048,6 +2186,7 @@ window.sailorClasses = [
     "name": "1st Engineer",
     "requiredLevel": 54,
     "requiredPoint": 50000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -2061,6 +2200,7 @@ window.sailorClasses = [
     "name": "1st Restorer",
     "requiredLevel": 55,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -2074,6 +2214,7 @@ window.sailorClasses = [
     "name": "1st Planesman",
     "requiredLevel": 56,
     "requiredPoint": 55000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -2094,6 +2235,7 @@ window.sailorClasses = [
     "name": "Ace Fighter Pilot",
     "requiredLevel": 60,
     "requiredPoint": 62000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": 3,
@@ -2106,6 +2248,7 @@ window.sailorClasses = [
     "name": "Ace Dive Bomber Pilot",
     "requiredLevel": 62,
     "requiredPoint": 58000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -5,
       "aircraft": -2,
@@ -2119,6 +2262,7 @@ window.sailorClasses = [
     "name": "Ace Torpedo Bomber Pilot",
     "requiredLevel": 64,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -2131,6 +2275,7 @@ window.sailorClasses = [
     "name": "Chief Repair Man",
     "requiredLevel": 65,
     "requiredPoint": 62000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "repair": 2
     }
@@ -2141,6 +2286,7 @@ window.sailorClasses = [
     "name": "Huge Gunner",
     "requiredLevel": 65,
     "requiredPoint": 55000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 3,
@@ -2154,6 +2300,7 @@ window.sailorClasses = [
     "name": "Chief Seaman",
     "requiredLevel": 70,
     "requiredPoint": 65000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {}
   },
   {
@@ -2162,6 +2309,7 @@ window.sailorClasses = [
     "name": "Chief Sonarman",
     "requiredLevel": 72,
     "requiredPoint": 71000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -2182,6 +2330,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber SQ.Ldr",
     "requiredLevel": 76,
     "requiredPoint": 76000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": -4,
@@ -2194,6 +2343,7 @@ window.sailorClasses = [
     "name": "Chief Gunner",
     "requiredLevel": 79,
     "requiredPoint": 77000,
+    "recruitsPerLevel": 10,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 3
@@ -2205,6 +2355,7 @@ window.sailorClasses = [
     "name": "Chief Planesman",
     "requiredLevel": 79,
     "requiredPoint": 78000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -2225,6 +2376,7 @@ window.sailorClasses = [
     "name": "Ace Recon Pilot",
     "requiredLevel": 80,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -2233,6 +2385,7 @@ window.sailorClasses = [
     "name": "2nd Sonarman",
     "requiredLevel": 12,
     "requiredPoint": 6000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -2253,6 +2406,7 @@ window.sailorClasses = [
     "name": "Armament Sailor",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": -14,
       "accuracy": 8,
@@ -2273,6 +2427,7 @@ window.sailorClasses = [
     "name": "Bridge Operator",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 2
     }
@@ -2283,6 +2438,7 @@ window.sailorClasses = [
     "name": "Sailor",
     "requiredLevel": 12,
     "requiredPoint": 200,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "restore": 2,
       "fighter": 2
@@ -2294,6 +2450,7 @@ window.sailorClasses = [
     "name": "Special Force",
     "requiredLevel": 12,
     "requiredPoint": 8500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -2314,6 +2471,7 @@ window.sailorClasses = [
     "name": "Support Sailor",
     "requiredLevel": 12,
     "requiredPoint": 5000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -2334,6 +2492,7 @@ window.sailorClasses = [
     "name": "2nd Seaman",
     "requiredLevel": 20,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {}
   },
   {
@@ -2342,6 +2501,7 @@ window.sailorClasses = [
     "name": "Gunner",
     "requiredLevel": 23,
     "requiredPoint": 23000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": 4,
@@ -2362,6 +2522,7 @@ window.sailorClasses = [
     "name": "Rookie Pilot",
     "requiredLevel": 25,
     "requiredPoint": 37000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -2,
       "accuracy": -2,
@@ -2380,6 +2541,7 @@ window.sailorClasses = [
     "name": "2nd Repair Man",
     "requiredLevel": 26,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -2400,6 +2562,7 @@ window.sailorClasses = [
     "name": "2nd Restorer",
     "requiredLevel": 28,
     "requiredPoint": 28000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -2420,6 +2583,7 @@ window.sailorClasses = [
     "name": "2nd Engineer",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -2440,6 +2604,7 @@ window.sailorClasses = [
     "name": "2nd Planesman",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -2460,6 +2625,7 @@ window.sailorClasses = [
     "name": "1st Seaman",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {}
   },
   {
@@ -2468,6 +2634,7 @@ window.sailorClasses = [
     "name": "Fighter Pilot",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": 4,
@@ -2480,6 +2647,7 @@ window.sailorClasses = [
     "name": "Heavy Gunner",
     "requiredLevel": 43,
     "requiredPoint": 40000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": 3,
       "reload": 3,
@@ -2493,6 +2661,7 @@ window.sailorClasses = [
     "name": "Heavy Torpedo Man",
     "requiredLevel": 43,
     "requiredPoint": 42000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -2506,6 +2675,7 @@ window.sailorClasses = [
     "name": "1st Sonarman",
     "requiredLevel": 44,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -2526,6 +2696,7 @@ window.sailorClasses = [
     "name": "1st Repair Man",
     "requiredLevel": 50,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": 3,
@@ -2539,6 +2710,7 @@ window.sailorClasses = [
     "name": "Dive Bomber Pilot",
     "requiredLevel": 50,
     "requiredPoint": 49000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -6,
       "fighter": -6,
@@ -2551,6 +2723,7 @@ window.sailorClasses = [
     "name": "Recon Pilot",
     "requiredLevel": 50,
     "requiredPoint": 49000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -2559,6 +2732,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber Pilot",
     "requiredLevel": 50,
     "requiredPoint": 44000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -2571,6 +2745,7 @@ window.sailorClasses = [
     "name": "1st Restorer",
     "requiredLevel": 52,
     "requiredPoint": 46000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -2584,6 +2759,7 @@ window.sailorClasses = [
     "name": "1st Engineer",
     "requiredLevel": 53,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -2597,6 +2773,7 @@ window.sailorClasses = [
     "name": "1st Planesman",
     "requiredLevel": 56,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -2617,6 +2794,7 @@ window.sailorClasses = [
     "name": "Ace Fighter Pilot",
     "requiredLevel": 60,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": 3,
@@ -2629,6 +2807,7 @@ window.sailorClasses = [
     "name": "Huge Gunner",
     "requiredLevel": 65,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2,
@@ -2642,6 +2821,7 @@ window.sailorClasses = [
     "name": "Ace Torpedo Bomber Pilot",
     "requiredLevel": 66,
     "requiredPoint": 58000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -2654,6 +2834,7 @@ window.sailorClasses = [
     "name": "Ace Dive Bomber Pilot",
     "requiredLevel": 67,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "aircraft": -2,
@@ -2667,6 +2848,7 @@ window.sailorClasses = [
     "name": "Chief Restorer",
     "requiredLevel": 68,
     "requiredPoint": 53000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "restore": 2
     }
@@ -2677,6 +2859,7 @@ window.sailorClasses = [
     "name": "Chief Seaman",
     "requiredLevel": 70,
     "requiredPoint": 65000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {}
   },
   {
@@ -2685,6 +2868,7 @@ window.sailorClasses = [
     "name": "Chief Sonarman",
     "requiredLevel": 70,
     "requiredPoint": 71000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -2705,6 +2889,7 @@ window.sailorClasses = [
     "name": "Dive Bomber SQ.Ldr",
     "requiredLevel": 75,
     "requiredPoint": 74000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": -4,
@@ -2717,6 +2902,7 @@ window.sailorClasses = [
     "name": "Fighter SQ.Ldr",
     "requiredLevel": 75,
     "requiredPoint": 74000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": 2,
@@ -2729,6 +2915,7 @@ window.sailorClasses = [
     "name": "Chief Gunner",
     "requiredLevel": 79,
     "requiredPoint": 77000,
+    "recruitsPerLevel": 10,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2
@@ -2740,6 +2927,7 @@ window.sailorClasses = [
     "name": "Chief Planesman",
     "requiredLevel": 79,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -2760,6 +2948,7 @@ window.sailorClasses = [
     "name": "Ace Recon Pilot",
     "requiredLevel": 80,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -2768,6 +2957,7 @@ window.sailorClasses = [
     "name": "2nd Sonarman",
     "requiredLevel": 12,
     "requiredPoint": 6000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -2788,6 +2978,7 @@ window.sailorClasses = [
     "name": "Armament Sailor",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": -14,
       "accuracy": 8,
@@ -2808,6 +2999,7 @@ window.sailorClasses = [
     "name": "Bridge Operator",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 2
     }
@@ -2818,6 +3010,7 @@ window.sailorClasses = [
     "name": "Sailor",
     "requiredLevel": 12,
     "requiredPoint": 200,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2,
@@ -2831,6 +3024,7 @@ window.sailorClasses = [
     "name": "Special Force",
     "requiredLevel": 12,
     "requiredPoint": 8500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -2851,6 +3045,7 @@ window.sailorClasses = [
     "name": "Support Sailor",
     "requiredLevel": 12,
     "requiredPoint": 5000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -2871,6 +3066,7 @@ window.sailorClasses = [
     "name": "2nd Seaman",
     "requiredLevel": 20,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {}
   },
   {
@@ -2879,6 +3075,7 @@ window.sailorClasses = [
     "name": "AA Gunner",
     "requiredLevel": 21,
     "requiredPoint": 23000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": -7,
@@ -2899,6 +3096,7 @@ window.sailorClasses = [
     "name": "Gunner",
     "requiredLevel": 21,
     "requiredPoint": 23000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": 4,
@@ -2919,6 +3117,7 @@ window.sailorClasses = [
     "name": "Rookie Pilot",
     "requiredLevel": 25,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -2,
       "accuracy": -2,
@@ -2937,6 +3136,7 @@ window.sailorClasses = [
     "name": "2nd Repair Man",
     "requiredLevel": 26,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -2957,6 +3157,7 @@ window.sailorClasses = [
     "name": "2nd Restorer",
     "requiredLevel": 28,
     "requiredPoint": 28000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -2977,6 +3178,7 @@ window.sailorClasses = [
     "name": "2nd Engineer",
     "requiredLevel": 29,
     "requiredPoint": 29000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -2997,6 +3199,7 @@ window.sailorClasses = [
     "name": "2nd Planesman",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -3017,6 +3220,7 @@ window.sailorClasses = [
     "name": "1st Seaman",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {}
   },
   {
@@ -3025,6 +3229,7 @@ window.sailorClasses = [
     "name": "Fighter Pilot",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": 4,
@@ -3037,6 +3242,7 @@ window.sailorClasses = [
     "name": "Heavy Gunner",
     "requiredLevel": 41,
     "requiredPoint": 39000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": 3,
       "reload": 3,
@@ -3050,6 +3256,7 @@ window.sailorClasses = [
     "name": "Rapid Fire Gunner",
     "requiredLevel": 42,
     "requiredPoint": 38000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "torpedo": -5,
@@ -3062,6 +3269,7 @@ window.sailorClasses = [
     "name": "1st Sonarman",
     "requiredLevel": 44,
     "requiredPoint": 44000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -3082,6 +3290,7 @@ window.sailorClasses = [
     "name": "Heavy Torpedo Man",
     "requiredLevel": 44,
     "requiredPoint": 43000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -3095,6 +3304,7 @@ window.sailorClasses = [
     "name": "Dive Bomber Pilot",
     "requiredLevel": 46,
     "requiredPoint": 46000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -3107,6 +3317,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber Pilot",
     "requiredLevel": 48,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -3119,6 +3330,7 @@ window.sailorClasses = [
     "name": "1st Repair Man",
     "requiredLevel": 50,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": 3,
@@ -3132,6 +3344,7 @@ window.sailorClasses = [
     "name": "Recon Pilot",
     "requiredLevel": 50,
     "requiredPoint": 49000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -3140,6 +3353,7 @@ window.sailorClasses = [
     "name": "1st Engineer",
     "requiredLevel": 52,
     "requiredPoint": 46000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -3153,6 +3367,7 @@ window.sailorClasses = [
     "name": "1st Restorer",
     "requiredLevel": 52,
     "requiredPoint": 46000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -3166,6 +3381,7 @@ window.sailorClasses = [
     "name": "1st Planesman",
     "requiredLevel": 55,
     "requiredPoint": 55000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -3186,6 +3402,7 @@ window.sailorClasses = [
     "name": "Ace Fighter Pilot",
     "requiredLevel": 60,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": 3,
@@ -3198,6 +3415,7 @@ window.sailorClasses = [
     "name": "Chief Rapid Fire Gunner",
     "requiredLevel": 62,
     "requiredPoint": 52000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": -4,
       "torpedo": -4,
@@ -3210,6 +3428,7 @@ window.sailorClasses = [
     "name": "Huge Gunner",
     "requiredLevel": 63,
     "requiredPoint": 54000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2,
@@ -3223,6 +3442,7 @@ window.sailorClasses = [
     "name": "Chief Engineer",
     "requiredLevel": 65,
     "requiredPoint": 55000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "repair": -4,
       "restore": -4,
@@ -3235,6 +3455,7 @@ window.sailorClasses = [
     "name": "Ace Dive Bomber Pilot",
     "requiredLevel": 66,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -3247,6 +3468,7 @@ window.sailorClasses = [
     "name": "Ace Torpedo Bomber Pilot",
     "requiredLevel": 67,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -3259,6 +3481,7 @@ window.sailorClasses = [
     "name": "Chief Seaman",
     "requiredLevel": 70,
     "requiredPoint": 65000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {}
   },
   {
@@ -3267,6 +3490,7 @@ window.sailorClasses = [
     "name": "Chief Sonarman",
     "requiredLevel": 71,
     "requiredPoint": 71000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -3287,6 +3511,7 @@ window.sailorClasses = [
     "name": "Dive Bomber SQ.Ldr",
     "requiredLevel": 75,
     "requiredPoint": 74000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": -4,
@@ -3299,6 +3524,7 @@ window.sailorClasses = [
     "name": "Fighter SQ.Ldr",
     "requiredLevel": 75,
     "requiredPoint": 74000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": 2,
@@ -3311,6 +3537,7 @@ window.sailorClasses = [
     "name": "Chief Gunner",
     "requiredLevel": 78,
     "requiredPoint": 76000,
+    "recruitsPerLevel": 10,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2
@@ -3322,6 +3549,7 @@ window.sailorClasses = [
     "name": "Chief Planesman",
     "requiredLevel": 78,
     "requiredPoint": 78000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -3342,6 +3570,7 @@ window.sailorClasses = [
     "name": "Ace Recon Pilot",
     "requiredLevel": 80,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -3350,6 +3579,7 @@ window.sailorClasses = [
     "name": "2nd Sonarman",
     "requiredLevel": 12,
     "requiredPoint": 6000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -3370,6 +3600,7 @@ window.sailorClasses = [
     "name": "Armament Sailor",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": -14,
       "accuracy": 7,
@@ -3390,6 +3621,7 @@ window.sailorClasses = [
     "name": "Bridge Operator",
     "requiredLevel": 12,
     "requiredPoint": 500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 2
     }
@@ -3400,6 +3632,7 @@ window.sailorClasses = [
     "name": "Sailor",
     "requiredLevel": 12,
     "requiredPoint": 200,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "torpedo": 2,
       "bomber": 2
@@ -3411,6 +3644,7 @@ window.sailorClasses = [
     "name": "Special Force",
     "requiredLevel": 12,
     "requiredPoint": 8500,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -3431,6 +3665,7 @@ window.sailorClasses = [
     "name": "Support Sailor",
     "requiredLevel": 12,
     "requiredPoint": 5000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -3451,6 +3686,7 @@ window.sailorClasses = [
     "name": "2nd Seaman",
     "requiredLevel": 20,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 6,
     "growthModifiers": {}
   },
   {
@@ -3459,6 +3695,7 @@ window.sailorClasses = [
     "name": "AA Gunner",
     "requiredLevel": 20,
     "requiredPoint": 22000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": -5,
@@ -3479,6 +3716,7 @@ window.sailorClasses = [
     "name": "Torpedo Man",
     "requiredLevel": 23,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": -7,
@@ -3499,6 +3737,7 @@ window.sailorClasses = [
     "name": "Gunner",
     "requiredLevel": 24,
     "requiredPoint": 26000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -4,
       "accuracy": 4,
@@ -3519,6 +3758,7 @@ window.sailorClasses = [
     "name": "Rookie Pilot",
     "requiredLevel": 25,
     "requiredPoint": 35000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "accuracy": -2,
       "reload": -2,
@@ -3536,6 +3776,7 @@ window.sailorClasses = [
     "name": "2nd Repair Man",
     "requiredLevel": 26,
     "requiredPoint": 24000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -3556,6 +3797,7 @@ window.sailorClasses = [
     "name": "2nd Restorer",
     "requiredLevel": 28,
     "requiredPoint": 28000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -3576,6 +3818,7 @@ window.sailorClasses = [
     "name": "2nd Engineer",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": -19,
       "accuracy": -2,
@@ -3596,6 +3839,7 @@ window.sailorClasses = [
     "name": "2nd Planesman",
     "requiredLevel": 30,
     "requiredPoint": 30000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -8,
@@ -3616,6 +3860,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber Pilot",
     "requiredLevel": 33,
     "requiredPoint": 40000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -3628,6 +3873,7 @@ window.sailorClasses = [
     "name": "1st Seaman",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 7,
     "growthModifiers": {}
   },
   {
@@ -3636,6 +3882,7 @@ window.sailorClasses = [
     "name": "Fighter Pilot",
     "requiredLevel": 40,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": 4,
@@ -3648,6 +3895,7 @@ window.sailorClasses = [
     "name": "DP Gunner",
     "requiredLevel": 42,
     "requiredPoint": 36000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "torpedo": -5,
       "aaw": 3
@@ -3659,6 +3907,7 @@ window.sailorClasses = [
     "name": "Heavy Torpedo Man",
     "requiredLevel": 42,
     "requiredPoint": 41000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": -5,
       "reload": -5,
@@ -3672,6 +3921,7 @@ window.sailorClasses = [
     "name": "Heavy Gunner",
     "requiredLevel": 44,
     "requiredPoint": 42000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "accuracy": 3,
       "reload": 3,
@@ -3685,6 +3935,7 @@ window.sailorClasses = [
     "name": "Dive Bomber Pilot",
     "requiredLevel": 45,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {
       "potential": -7,
       "fighter": -7,
@@ -3697,6 +3948,7 @@ window.sailorClasses = [
     "name": "1st Sonarman",
     "requiredLevel": 46,
     "requiredPoint": 46000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -3717,6 +3969,7 @@ window.sailorClasses = [
     "name": "1st Repair Man",
     "requiredLevel": 50,
     "requiredPoint": 45000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": 3,
@@ -3730,6 +3983,7 @@ window.sailorClasses = [
     "name": "Recon Pilot",
     "requiredLevel": 50,
     "requiredPoint": 49000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -3738,6 +3992,7 @@ window.sailorClasses = [
     "name": "1st Engineer",
     "requiredLevel": 54,
     "requiredPoint": 48000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": -15,
       "repair": -5,
@@ -3751,6 +4006,7 @@ window.sailorClasses = [
     "name": "1st Planesman",
     "requiredLevel": 56,
     "requiredPoint": 56000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {
       "potential": 1,
       "accuracy": -7,
@@ -3771,6 +4027,7 @@ window.sailorClasses = [
     "name": "Ace Fighter Pilot",
     "requiredLevel": 60,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": 3,
@@ -3783,6 +4040,7 @@ window.sailorClasses = [
     "name": "Special Torpedo Man",
     "requiredLevel": 60,
     "requiredPoint": 60000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": -4,
       "reload": -4,
@@ -3796,6 +4054,7 @@ window.sailorClasses = [
     "name": "Chief DP Gunner",
     "requiredLevel": 62,
     "requiredPoint": 50000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "torpedo": -4,
       "aaw": 2
@@ -3807,6 +4066,7 @@ window.sailorClasses = [
     "name": "Ace Torpedo Bomber Pilot",
     "requiredLevel": 64,
     "requiredPoint": 57000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -3819,6 +4079,7 @@ window.sailorClasses = [
     "name": "Hyper Torpedo Man",
     "requiredLevel": 64,
     "requiredPoint": 58000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": -4,
       "reload": -4,
@@ -3832,6 +4093,7 @@ window.sailorClasses = [
     "name": "Ace Dive Bomber Pilot",
     "requiredLevel": 65,
     "requiredPoint": 59000,
+    "recruitsPerLevel": 4,
     "growthModifiers": {
       "potential": -5,
       "fighter": -5,
@@ -3844,6 +4106,7 @@ window.sailorClasses = [
     "name": "Huge Gunner",
     "requiredLevel": 67,
     "requiredPoint": 58000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2,
@@ -3857,6 +4120,7 @@ window.sailorClasses = [
     "name": "Chief Seaman",
     "requiredLevel": 70,
     "requiredPoint": 65000,
+    "recruitsPerLevel": 8,
     "growthModifiers": {}
   },
   {
@@ -3865,6 +4129,7 @@ window.sailorClasses = [
     "name": "Chief Sonarman",
     "requiredLevel": 72,
     "requiredPoint": 72000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -3885,6 +4150,7 @@ window.sailorClasses = [
     "name": "Dive Bomber SQ.Ldr",
     "requiredLevel": 75,
     "requiredPoint": 74000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": -4,
@@ -3897,6 +4163,7 @@ window.sailorClasses = [
     "name": "Torpedo Bomber SQ.Ldr",
     "requiredLevel": 77,
     "requiredPoint": 72000,
+    "recruitsPerLevel": 3,
     "growthModifiers": {
       "potential": -4,
       "fighter": -4,
@@ -3909,6 +4176,7 @@ window.sailorClasses = [
     "name": "Chief Planesman",
     "requiredLevel": 79,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 9,
     "growthModifiers": {
       "potential": 2,
       "accuracy": -6,
@@ -3929,6 +4197,7 @@ window.sailorClasses = [
     "name": "Ace Recon Pilot",
     "requiredLevel": 80,
     "requiredPoint": 79000,
+    "recruitsPerLevel": 5,
     "growthModifiers": {}
   },
   {
@@ -3937,6 +4206,7 @@ window.sailorClasses = [
     "name": "Chief Gunner",
     "requiredLevel": 80,
     "requiredPoint": 78000,
+    "recruitsPerLevel": 10,
     "growthModifiers": {
       "accuracy": 2,
       "reload": 2
@@ -3948,6 +4218,7 @@ window.sailorClasses = [
     "name": "Special Torpedo Kai Man",
     "requiredLevel": 80,
     "requiredPoint": 80000,
+    "recruitsPerLevel": 10,
     "growthModifiers": {
       "accuracy": -4,
       "reload": -4,
@@ -3956,6 +4227,7 @@ window.sailorClasses = [
     }
   }
 ];
+
 window.classTransitions = [
   {
     "parentId": 4,
