@@ -1095,13 +1095,22 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             }
             
             const def = getDefaultOpt(config.role, config.nation);
+            const isPilotModes = ["Fighter", "TB", "DB", "Scout"].includes(config.role);
+
+            let statToOptimize, targetCap, isMaxMode = false;
             
-            const statToOptimize = prompt(`To maximize Repair (or other off-stats), simply tell me your MAIN ROLE stat to cap. The optimizer will automatically delay your classes as long as medically possible to preserve your Repair stats!\n\nStat to hit cap for (e.g. reload, accuracy, torpedo, engine, fighter, bomber, aircraft, potential):`, def.s);
-            if (!statToOptimize) return;
-            
-            const targetString = prompt(`Enter the target True Ability cap you want to precisely hit for '${statToOptimize}':`, def.c);
-            if (!targetString) return;
-            const targetCap = parseInt(targetString, 10);
+            if (isPilotModes) {
+                 statToOptimize = prompt(`Since Pilots have no stat cap, which stat do you want to get the absolute HIGHEST True Ability for?\n\nStat (e.g. fighter, bomber, aircraft):`, def.s);
+                 if (!statToOptimize) return;
+                 isMaxMode = true;
+            } else {
+                 statToOptimize = prompt(`To maximize Repair (or other off-stats), simply tell me your MAIN ROLE stat to cap. The optimizer will automatically delay your classes as long as medically possible to preserve your Repair stats!\n\nStat to hit cap for (e.g. reload, accuracy, torpedo, engine, potential):`, def.s);
+                 if (!statToOptimize) return;
+                 
+                 const targetString = prompt(`Enter the target True Ability cap you want to precisely hit for '${statToOptimize}':`, def.c);
+                 if (!targetString) return;
+                 targetCap = parseInt(targetString, 10);
+            }
             
             const validSteps = config.classPath.filter(c => c.classId);
             if (validSteps.length === 0) {
@@ -1130,7 +1139,7 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 alert(`Stat '${statToOptimize}' not found.`);
                 return;
             }
-            if (testTA < targetCap) {
+            if (!isMaxMode && testTA < targetCap) {
                 alert("Cannot reach the target cap even with no delays. You need a better base sailor, more crew, or a different class path.");
                 return;
             }
@@ -1154,7 +1163,9 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                     maxAllowed = validSteps[i+1].level;
                 }
                 
+                let highestTA = -1;
                 let bestLevel = minAllowed;
+                
                 for (let l = maxAllowed; l >= minAllowed; l--) {
                     step.level = l;
                     let loopConfig = { ...config, classPath: validSteps };
@@ -1177,9 +1188,17 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                     let loopStats = CrewEngine.buildSailor(loopConfig);
                     let loopMetrics = CrewEngine.calculateTrueAbilities(loopStats, config.role, loopRecruits, loopExperts, loopVets, config.nation);
                     let ta = loopMetrics.ta[statToOptimize.toLowerCase()];
-                    if (ta >= targetCap) {
-                        bestLevel = l;
-                        break;
+                    
+                    if (isMaxMode) {
+                        if (ta > highestTA) {
+                            highestTA = ta;
+                            bestLevel = l;
+                        }
+                    } else {
+                        if (ta >= targetCap) {
+                            bestLevel = l;
+                            break;
+                        }
                     }
                 }
                 step.level = bestLevel;
@@ -1269,6 +1288,9 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 }
                 if (r === "Main Gunner" || r === "HH" || r === "AA/DP") {
                     taHTML += `Acc: ${metrics.accPct.toFixed(1)}%<br>Rld: ${metrics.rldPct.toFixed(1)}%<br>`;
+                }
+                if (r === "Scout" || r === "Fighter" || r === "TB" || r === "DB") {
+                    taHTML += `Air: ${metrics.ta.aircraft.toLocaleString()}<br>Ftr: ${metrics.ta.fighter.toLocaleString()}<br>Bom: ${metrics.ta.bomber.toLocaleString()}<br>`;
                 }
                 if (metrics.priCap) {
                     taHTML += `Pri Cap: ${(metrics.priTA / metrics.priCap * 100).toFixed(1)}%<br>`;
