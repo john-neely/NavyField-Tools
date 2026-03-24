@@ -518,16 +518,6 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                     }
                 })
 
-            document.querySelectorAll(".recInput").forEach((inp, i) => {
-                if (data.recruits && data.recruits[i] !== undefined) inp.value = data.recruits[i];
-            })
-            document.querySelectorAll(".expInput").forEach((inp, i) => {
-                if (data.experts && data.experts[i] !== undefined) inp.value = data.experts[i];
-            })
-            document.querySelectorAll(".vetInput").forEach((inp, i) => {
-                if (data.vets && data.vets[i] !== undefined) inp.value = data.vets[i];
-            })
-
             /* restore class paths */
 
             document.querySelectorAll("#crewTable tbody tr")
@@ -563,8 +553,42 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                         parent = classId
 
                     })
+                    
+                    updateMaxCrewSize(row)
+                    
+                    const vetPreset = row.querySelector(".vetPreset");
+                    if(vetPreset) vetPreset.value = "custom";
 
                 })
+
+            document.querySelectorAll(".recInput").forEach((inp, i) => {
+                if (data.recruits && data.recruits[i] !== undefined) inp.value = data.recruits[i];
+            })
+            document.querySelectorAll(".expInput").forEach((inp, i) => {
+                if (data.experts && data.experts[i] !== undefined) inp.value = data.experts[i];
+            })
+            document.querySelectorAll(".vetInput").forEach((inp, i) => {
+                if (data.vets && data.vets[i] !== undefined) inp.value = data.vets[i];
+            })
+            
+            document.querySelectorAll("#crewTable tbody tr").forEach((row) => {
+                const maxSize = Number(row.querySelector(".maxCrewDisplay").innerText) || 0;
+                let r = Number(row.querySelector(".recInput").value) || 0;
+                let e = Number(row.querySelector(".expInput").value) || 0;
+                let v = Number(row.querySelector(".vetInput").value) || 0;
+                let total = r + e + v;
+                let totalSpan = row.querySelector(".totalCrewDisplay");
+                totalSpan.innerText = total;
+                if (total > maxSize) {
+                    totalSpan.style.color = "red";
+                    totalSpan.style.fontWeight = "bold";
+                } else {
+                    totalSpan.style.color = "black";
+                    totalSpan.style.fontWeight = "normal";
+                }
+            })
+            
+            calculateCrew()
 
         }
 
