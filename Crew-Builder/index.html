@@ -30,6 +30,13 @@
             text-align: center;
         }
 
+        .classCell {
+            text-align: left;
+            vertical-align: middle;
+            padding-left: 15px;
+            min-width: 200px;
+        }
+
         button {
             padding: 6px 12px;
             margin: 5px;
@@ -131,6 +138,10 @@
     <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importBuildFile(event)">
     <button onclick="document.getElementById('importFile').click()">Load Build (.json)</button>
 
+    <div style="margin-top: 30px; border-top: 1px solid #ccc; padding-top: 15px;">
+        <b>Build Notes</b><br>
+        <textarea id="buildNotes" style="width: 100%; max-width: 800px; height: 120px; margin-top: 5px; font-family: Arial; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"></textarea>
+    </div>
 
     <script>
 
@@ -464,6 +475,8 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
 
                 })
 
+            const notes = document.getElementById("buildNotes").value
+
             return {
                 nation: nation,
                 shipCategory: shipCategory,
@@ -474,7 +487,8 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                 boosts: boosts,
                 recruits: recruits,
                 experts: experts,
-                vets: vets
+                vets: vets,
+                notes: notes
             }
 
         }
@@ -494,6 +508,8 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             if (data.ship) {
                 document.getElementById("shipSelect").value = data.ship
             }
+
+            document.getElementById("buildNotes").value = data.notes || ""
 
             newCrew()
 
@@ -551,6 +567,7 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
                         }
 
                         parent = classId
+                        updateModifierDisplay(step)
 
                     })
                     
@@ -681,6 +698,57 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
 
         }
 
+        function updateModifierDisplay(step) {
+            const classSelect = step.querySelector(".classSelect");
+            let modifierSpan = step.querySelector(".modifierSpan");
+            if (!modifierSpan) {
+                modifierSpan = document.createElement("span");
+                modifierSpan.className = "modifierSpan";
+                modifierSpan.style.marginLeft = "8px";
+                modifierSpan.style.display = "inline-block";
+                modifierSpan.style.verticalAlign = "middle";
+                step.appendChild(modifierSpan);
+            }
+
+            const classId = classSelect.value;
+            if (!classId) {
+                modifierSpan.innerHTML = "";
+                return;
+            }
+
+            const cls = sailorClasses.find(c => c.id == classId);
+            if (!cls || !cls.growthModifiers) {
+                modifierSpan.innerHTML = "";
+                return;
+            }
+
+            let parts = [];
+            const modifiers = cls.growthModifiers;
+            const keyMap = {
+                potential: "Pot",
+                accuracy: "Acc",
+                reload: "Rld",
+                torpedo: "Tor",
+                aaw: "AAW",
+                repair: "Rep",
+                restore: "Res",
+                engine: "Eng",
+                aircraft: "Air",
+                fighter: "Ftr",
+                bomber: "Bom"
+            };
+
+            for (const key in keyMap) {
+                const val = modifiers[key];
+                if (val && val !== 0) {
+                    const color = val > 0 ? "#28a745" : "#dc3545"; 
+                    const sign = val > 0 ? "+" : "";
+                    parts.push(`<span style="color:${color}; margin-right: 4px; font-size: 0.8em; font-weight: bold; white-space: nowrap;">${keyMap[key]}:${sign}${val}</span>`);
+                }
+            }
+            modifierSpan.innerHTML = parts.join(" ");
+        }
+
         function populateClassOptions(row) {
 
             const nation = document.getElementById("nationSelect").value
@@ -773,6 +841,8 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
             step.appendChild(document.createTextNode(" Lv "))
             step.appendChild(levelInput)
 
+            updateModifierDisplay(step)
+
             cell.appendChild(step)
 
 
@@ -855,6 +925,7 @@ Total: <span class="totalCrewDisplay">0</span> / <span class="maxCrewDisplay">0<
 
                 }
 
+                updateModifierDisplay(step);
                 updateMaxCrewSize(row);
 
             })
@@ -1307,10 +1378,10 @@ ${taHTML}
             var totalRepPct = (totalRepair / REPAIR_CAP) * 100;
 
             var repHTML = `<b>Total Repair:</b> ${effectiveRepair.toFixed(3)} Rep/s`;
-            if (totalRepair > REPAIR_CAP) {
-                repHTML += ` <span style="color:red; font-weight:bold;">(HARD CAPPED)</span> <i>(Raw: ${totalRepair.toFixed(3)} / ${totalRepPct.toFixed(1)}%)</i>`;
+            if (totalRepair >= REPAIR_CAP) {
+                repHTML += ` <span style="color:#28a745; font-weight:bold;">(HARD CAPPED)</span> <i>(Raw: ${totalRepair.toFixed(3)} / ${totalRepPct.toFixed(1)}%)</i>`;
             } else {
-                repHTML += ` (${totalRepPct.toFixed(1)}% of cap)`;
+                repHTML += ` <span style="color:#dc3545; font-weight:bold;">(NOT CAPPED)</span> <i>(${totalRepPct.toFixed(1)}% of cap)</i>`;
             }
             var rt = document.getElementById("repairTotal");
             if (rt) rt.innerHTML = repHTML;
